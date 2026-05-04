@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in to your BackHouse account — access the circular economy concierge." />
+  <title>Login | BackHouse Circular Economy</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       TOP NAVIGATION  (identical to register)
+  ═══════════════════════════════════════════ -->
+  <header class="top-nav" role="banner">
+    <a href="index.html" class="top-nav__logo">BackHouse</a>
+
+    <nav class="top-nav__links" aria-label="Primary navigation">
+      <a href="#">Marketplace</a>
+      <a href="#">Solutions</a>
+      <a href="#">About</a>
+    </nav>
+
+    <a href="register.html" class="top-nav__signin">Register</a>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT — SPLIT SCREEN
+  ═══════════════════════════════════════════ -->
+  <main class="login-page">
+    <div class="split-layout split-layout--even">
+
+      <!-- LEFT: Brand Sidebar (solid variant) -->
+      <aside class="brand-sidebar brand-sidebar--solid">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp0TDddGJjPlysmEYmWfmShXvalE0s0NubJrVUyzfTtMPGiUmxJRNVo87YzyhrttuHbmqbyu2uqQ-2j6a1OJiBVf3mZPOM23o1EY-2bzFmRyPYoHpAOZHfn77hiULV58_aOK1DsZfMr1GV5Y3vxyrmLyF7z89Bj0uA2TWQmL2wqEo2rRybSFXCZx8ndtytJ5Mqk7BrEX5onau6borWjf4i828erpb9e2hX5RcWauuv9hpTah-TbWETx3fyw2hpAW8-sYb93eD3Q-6N"
+          alt="Abstract sustainable building materials with architectural shadows"
+          class="brand-sidebar__image"
+          loading="lazy"
+        />
+        <div class="brand-sidebar__overlay">
+          <div>
+            <span class="brand-sidebar__logo">BackHouse</span>
+            <h1 class="brand-sidebar__heading brand-sidebar__heading--spaced">
+              Refining the <span class="brand-sidebar__accent">Circular Economy</span> through precision.
+            </h1>
+          </div>
+          <p class="brand-sidebar__description">
+            Join the elite network of industrial partners committed to
+            sustainable resource management and premium logistics.
+          </p>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Login Form -->
+      <section class="form-panel form-panel--centered" aria-label="Login form">
+
+        <!-- Page Header -->
+        <div class="form-panel__header">
+          <h2 class="form-panel__title">Welcome Back</h2>
+          <p class="form-panel__subtitle">Enter your credentials to access the concierge.</p>
+        </div>
+
+        <!-- Login Form -->
+        <form class="login-form" action="#" method="post" novalidate>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="email">Work Email</label>
+            <div class="form-input-row">
+              <span class="material-symbols-outlined form-icon">mail</span>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="name@company.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <div class="form-label-row">
+              <label class="form-label" for="password">Security Token</label>
+              <a href="forgot-password.html" class="form-label-link link">Forgot Password?</a>
+            </div>
+            <div class="form-input-row">
+              <span class="material-symbols-outlined form-icon">lock</span>
+              <input
+                class="form-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                required
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                aria-label="Toggle password visibility"
+                data-target="password"
+              >
+                <span class="material-symbols-outlined">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="form-checkbox-group">
+            <input
+              type="checkbox"
+              id="remember"
+              name="remember"
+              class="form-checkbox"
+            />
+            <label class="form-checkbox-label" for="remember">Remember this device</label>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-primary btn-login" id="login-btn">
+            Access Account
+          </button>
+        </form>
+
+        <!-- Register Redirect -->
+        <div class="form-redirect">
+          <p>
+            Don't have an account?
+            <a href="register.html" class="link">Register</a>
+          </p>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER  (identical to register)
+  ═══════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <span class="site-footer__logo">BackHouse</span>
+
+    <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sustainability Report</a>
+      <a href="#">Contact Support</a>
+    </nav>
+
+    <small class="site-footer__copy">&copy; 2024 BackHouse Circular Economy. All rights reserved.</small>
+  </footer>
+
+  <script src="app.js?v=3"></script>
+  <script src="login.js?v=3"></script>
+</body>
+</html>

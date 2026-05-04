@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Listing | BackHouse</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="create-listing.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- 1. Sidebar Navigation (Unified) -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+            </div>
+        </aside>
+
+        <!-- 2. Global Top Header -->
+        <header class="dashboard-header">
+            <div class="dashboard-header__left">
+                <h2 class="dashboard-header__title">My Listings</h2>
+                <div class="dashboard-header__divider"></div>
+                <div class="dashboard-header__date">
+                    <span class="material-symbols-outlined" style="font-size: 1rem;">chevron_right</span>
+                    <span>New Listing</span>
+                </div>
+            </div>
+            <div class="dashboard-header__actions">
+                <button class="dashboard-header__btn" aria-label="Notifications">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="dashboard-header__dot"></span>
+                </button>
+                <button class="dashboard-header__btn" aria-label="Profile">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- 3. Main Content Area -->
+        <main class="dashboard-main">
+            
+            <!-- Page Title Area -->
+            <div class="create-header">
+                <div class="create-header__content">
+                    <div class="create-header__info">
+                        <h1 class="create-header__title">Create New Listing</h1>
+                        <p class="create-header__subtitle">Enter the details of your surplus stock to make it available on the BackHouse marketplace.</p>
+                    </div>
+                    
+                    <!-- Progress Card -->
+                    <div class="create-progress">
+                        <div class="create-progress__header">
+                            <span class="create-progress__label">Form Completion</span>
+                            <span class="create-progress__percentage">75%</span>
+                        </div>
+                        <div class="create-progress__bar">
+                            <div class="create-progress__fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Content Grid -->
+            <form id="create-listing-form" class="create-form-grid">
+                
+                <!-- LEFT COLUMN -->
+                <div class="create-form-column">
+                    
+                    <!-- Section: Product Information -->
+                    <section class="form-card">
+                        <div class="form-card__header">
+                            <div class="form-card__icon"><span class="material-symbols-outlined">info</span></div>
+                            <h3 class="form-card__title">Product Information</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Product Name</label>
+                            <input type="text" id="product-name" name="name" class="form-input" placeholder="e.g. Organic Madagascar Vanilla Beans" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select id="product-category" name="category" class="form-select">
+                                <option>Dry Goods</option>
+                                <option>Canned Goods</option>
+                                <option>Spices & Herbs</option>
+                                <option>Dairy & Refrigerated</option>
+                                <option>Produce</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Description</label>
+                            <textarea id="product-desc" name="description" class="form-textarea" placeholder="Describe the item, storage conditions, and any specific details for the buyer..." rows="5"></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Section: Quantity & Pricing -->
+                    <section class="form-card">
+                        <div class="form-card__header">
+                            <div class="form-card__icon"><span class="material-symbols-outlined">payments</span></div>
+                            <h3 class="form-card__title">Quantity & Pricing</h3>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Quantity</label>
+                                <div class="form-input-group">
+                                    <input type="number" id="product-qty" name="quantity" class="form-input" placeholder="0">
+                                    <select id="product-unit" name="unit" class="form-select form-select--small">
+                                        <option>kg</option>
+                                        <option>boxes</option>
+                                        <option>units</option>
+                                        <option>liters</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Listing Price ($)</label>
+                                <input type="number" id="product-price" name="price" class="form-input" step="0.01" value="0.00">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Original Price (Optional)</label>
+                                <input type="number" id="product-price-original" name="price_original" class="form-input" placeholder="0.00">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Expiry Date</label>
+                                <input type="date" id="product-expiry" name="expiry_date" class="form-input">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="create-form-column">
+                    
+                    <!-- Section: Media Upload -->
+                    <section class="form-card">
+                        <div class="form-card__header">
+                            <div class="form-card__icon"><span class="material-symbols-outlined">image</span></div>
+                            <h3 class="form-card__title">Images</h3>
+                        </div>
+
+                        <div class="image-upload" id="drop-zone">
+                            <input type="file" id="file-input" accept="image/*" hidden>
+                            <span class="material-symbols-outlined image-upload__icon">cloud_upload</span>
+                            <p class="image-upload__text">Drag & drop your image</p>
+                            <p class="image-upload__hint">or browse local storage</p>
+                        </div>
+
+                        <!-- Image grid will be populated via JS later -->
+                        <div class="image-grid" id="image-preview-container" style="display: none;">
+                            <!-- Preview item placeholder -->
+                        </div>
+                    </section>
+
+                    <!-- Section: Tips -->
+                    <section class="tips-card">
+                        <span class="tips-card__label">Marketplace Tip</span>
+                        <p class="tips-card__text">
+                            Items with detailed descriptions and at least 3 high-quality images sell <strong>40% faster</strong>.
+                        </p>
+                    </section>
+                </div>
+
+            </form>
+
+            <!-- Footer Actions -->
+            <footer class="footer-bar">
+                <div class="footer-bar__container">
+                    <button type="button" class="btn-draft" onclick="window.location.href='all-listings.html'">Cancel</button>
+                    <div class="footer-bar__actions">
+                        <button type="submit" form="create-listing-form" class="btn-publish">Publish Listing</button>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="listings-data.js"></script>
+    <script src="app.js"></script>
+    <script src="create-listing.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+/* ─── Edit Listing Page Styles ────────────────────────── */
+
+/* 1. Breadcrumbs */
+.edit-breadcrumbs {
+    display: flex;
+    align-items: center;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-outline);
+    margin-bottom: var(--space-lg);
+    gap: var(--space-xs);
+}
+
+.edit-breadcrumbs__link {
+    color: var(--color-outline);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.edit-breadcrumbs__link:hover {
+    color: var(--color-primary);
+}
+
+.edit-breadcrumbs__separator {
+    font-size: 0.875rem;
+    color: var(--color-outline-variant);
+}
+
+.edit-breadcrumbs__current {
+    color: var(--color-on-surface);
+    font-weight: 700;
+}
+
+/* 2. Page Header */
+.edit-header {
+    margin-bottom: var(--space-2xl);
+}
+
+.edit-header__title {
+    font-family: var(--font-headline);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-on-surface);
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-xs);
+}
+
+.edit-header__subtitle {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 40rem;
+}
+
+/* 3. Asymmetric Form Grid (8/4) */
+.edit-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .edit-form-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.edit-form-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* 4. Section Titles (inside form-cards) */
+.edit-section-title {
+    font-family: var(--font-headline);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-on-surface);
+    margin-bottom: var(--space-xl);
+}
+
+/* 5. Form Grid Variants */
+.edit-form-row--2col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .edit-form-row--2col {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.edit-form-row--3col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .edit-form-row--3col {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.edit-form-row--full {
+    grid-column: 1 / -1;
+}
+
+
+
+/* 8. Price Highlight */
+.edit-price--active {
+    color: #10B981;
+    font-weight: 700;
+}
+
+.edit-price--original {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* 9. Discount Badge */
+.edit-discount-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    padding: 0.375rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+/* 10. Listing Media Section */
+.edit-media__label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-outline);
+    margin-bottom: var(--space-md);
+}
+
+.edit-media__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.edit-media__item {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface-low);
+}
+
+.edit-media__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.edit-media__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    cursor: pointer;
+}
+
+.edit-media__overlay .material-symbols-outlined {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.edit-media__item:hover .edit-media__overlay {
+    opacity: 1;
+}
+
+.edit-media__upload {
+    aspect-ratio: 1;
+    border: 2px dashed var(--color-outline-variant);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-outline);
+    cursor: pointer;
+    transition: var(--transition-base);
+    gap: var(--space-xs);
+}
+
+.edit-media__upload:hover {
+    border-color: #10B981;
+    background: rgba(16, 185, 129, 0.03);
+}
+
+.edit-media__upload .material-symbols-outlined {
+    font-size: 1.75rem;
+}
+
+.edit-media__upload-text {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* 11. Action Buttons */
+.edit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.edit-btn-update {
+    width: 100%;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    font-size: 0.9375rem;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+    transition: var(--transition-base);
+}
+
+.edit-btn-update:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.edit-btn-update:active {
+    transform: scale(0.97);
+}
+
+.edit-btn-cancel {
+    width: 100%;
+    background: var(--color-surface-high);
+    color: var(--color-on-surface);
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    font-size: 0.9375rem;
+    transition: var(--transition-base);
+}
+
+.edit-btn-cancel:hover {
+    background: var(--color-surface-container);
+}
+
+.edit-btn-cancel:active {
+    transform: scale(0.97);
+}
+
+
+/* 13. Change History Section */
+.edit-history {
+    margin-top: var(--space-2xl);
+}
+
+.edit-history__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-xl);
+}
+
+.edit-history__title {
+    font-family: var(--font-headline);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-on-surface);
+}
+
+.edit-history__link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #10B981;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.edit-history__link:hover {
+    text-decoration: underline;
+}
+
+.edit-history__link .material-symbols-outlined {
+    font-size: 0.875rem;
+}
+
+.edit-history__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.edit-history__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-surface-high);
+}
+
+.edit-history__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.edit-history__item--faded {
+    opacity: 0.6;
+}
+
+.edit-history__icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.edit-history__icon .material-symbols-outlined {
+    font-size: 0.875rem;
+}
+
+.edit-history__icon--edit {
+    background: var(--color-surface-high);
+    color: var(--color-secondary);
+}
+
+.edit-history__icon--restock {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.edit-history__icon--media {
+    background: var(--color-surface-high);
+    color: var(--color-secondary);
+}
+
+.edit-history__body {
+    flex: 1;
+}
+
+.edit-history__desc {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-on-surface);
+    line-height: 1.5;
+}
+
+.edit-history__desc-highlight {
+    color: #10B981;
+    font-weight: 600;
+}
+
+.edit-history__detail {
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+    margin-top: 0.25rem;
+    line-height: 1.5;
+}
+
+.edit-history__time {
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: var(--color-outline);
+    margin-top: var(--space-sm);
+    text-transform: uppercase;
+}
+
+/* 14. Content Wrapper */
+.edit-content {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: var(--space-xl);
+    padding-bottom: var(--space-3xl);
+}

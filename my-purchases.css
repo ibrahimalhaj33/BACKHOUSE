@@ -1,0 +1,281 @@
+/* ═══════════════════════════════════════════════════════
+   BackHouse — My Purchases Page Styles
+   ═══════════════════════════════════════════════════════ */
+
+/* 1. Page Header */
+.purchases-hero {
+    margin-bottom: var(--space-xl);
+}
+
+.purchases-hero__title {
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-on-surface);
+    margin-bottom: var(--space-xs);
+}
+
+.purchases-hero__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+/* 2. Sustainability Scorecard (Img 2) */
+.scorecard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-xl);
+    background: white;
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-2xl);
+    border: 1px solid var(--color-surface-high);
+}
+
+.scorecard__intro {
+    padding-right: var(--space-lg);
+}
+
+.scorecard__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    color: var(--color-on-surface);
+}
+
+/* Rating Stars */
+.rating-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.rating-star {
+    font-size: 2.5rem;
+    color: var(--color-outline-variant);
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+/* The exact hover logic will be handled slightly via JS to highlight preceding stars, 
+   but base states are here */
+.rating-star.hover-active,
+.rating-star.selected {
+    color: #f59e0b; /* amber-500 */
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+.rating-star:hover {
+    transform: scale(1.1);
+}
+
+.scorecard__desc {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.scorecard__tier {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--color-surface-container);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.scorecard__card {
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+}
+
+.scorecard__card--green {
+    background: var(--color-primary);
+    color: white;
+}
+
+.scorecard__card--white {
+    background: white;
+    border: 1px solid var(--color-surface-high);
+}
+
+.scorecard__icon {
+    font-size: 1.5rem;
+    margin-bottom: auto;
+}
+
+.scorecard__value {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.scorecard__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* 3. Purchases Table (Garbage Code Transform) */
+.table-container {
+    background: white;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-surface-high);
+    overflow: hidden;
+}
+
+.table-header {
+    padding: var(--space-lg) var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-surface-high);
+}
+
+.table-header__title {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.table-header__count {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+.purchases-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.purchases-table thead {
+    background: var(--color-primary);
+}
+
+.purchases-table th {
+    padding: 16px 24px;
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.purchases-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--color-surface-high);
+    vertical-align: middle;
+}
+
+.purchases-table tr:last-child td {
+    border-bottom: none;
+}
+
+.purchases-table tr:hover td {
+    background: var(--color-surface-lowest);
+}
+
+.prod-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.prod-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--color-surface-low);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+}
+
+.prod-image {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    background: var(--color-surface-low);
+}
+
+.prod-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: block;
+}
+
+.prod-sku {
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+}
+
+.price-cell {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.875rem;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status-badge--confirmed {
+    background: var(--color-primary);
+    color: white;
+}
+
+.status-badge--pending {
+    background: var(--color-surface-container);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary-fixed);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.status-dot--white { background: white; }
+.status-dot--green { background: var(--color-primary); }
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary);
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background: var(--color-surface-high);
+    color: var(--color-error);
+}

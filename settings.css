@@ -1,0 +1,506 @@
+/* ═══════════════════════════════════════════════════════
+   BackHouse — Settings Module Styles
+   Vanilla CSS · BEM Methodology
+   ═══════════════════════════════════════════════════════ */
+
+/* 1. Page Layout & Hero */
+.settings-hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-outline-variant);
+    margin-bottom: var(--space-2xl);
+}
+
+.settings-hero__title {
+    font-family: var(--font-headline);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+}
+
+.settings-hero__desc {
+    color: var(--color-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* 2. Bento Grid Layout */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--space-2xl);
+    align-items: start;
+}
+
+@media (max-width: 1100px) {
+    .settings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 3. Section Cards */
+.settings-card {
+    background: var(--color-surface-container-lowest);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+    margin-bottom: var(--space-xl);
+}
+
+.settings-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-xl);
+}
+
+.settings-card__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-headline);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-on-surface);
+}
+
+/* 4. Form Components */
+.settings-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+@media (max-width: 600px) {
+    .settings-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.settings-group--full {
+    grid-column: 1 / -1;
+}
+
+.settings-label {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-secondary);
+    padding-left: var(--space-xs);
+}
+
+.settings-input {
+    width: 100%;
+    background: var(--color-surface-container);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-lg);
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-on-surface);
+    transition: all 0.2s ease;
+}
+
+.settings-input:hover {
+    border-color: var(--color-outline);
+    background: var(--color-surface-container-high);
+}
+
+.settings-input:focus {
+    outline: none;
+    background: var(--color-surface-container-lowest);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(21, 66, 18, 0.05);
+}
+
+.settings-input--readonly {
+    background: var(--color-surface-container);
+    color: var(--color-on-surface-variant);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* 5. Map Section */
+.settings-map-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Increased height to match the 'square' feel */
+    background: #23504e; /* Matches the map graphic's background */
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.95) contrast(1.05);
+}
+
+.settings-map-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    color: var(--color-primary);
+    cursor: grab;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    transition: transform 0.2s;
+}
+
+.settings-map-marker:active {
+    cursor: grabbing;
+    transform: translate(-50%, -105%) scale(1.1);
+}
+
+/* 6. Action Buttons & Sidebar */
+.settings-sidebar {
+    padding-top: 120px; /* Aligns the primary button with the vertical center of the first card */
+}
+
+.settings-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: sticky;
+    top: 100px;
+}
+
+.btn-settings-primary {
+    width: 100%;
+    background: var(--color-primary-container);
+    color: var(--color-on-primary);
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 1.125rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(21, 66, 18, 0.15);
+}
+
+.btn-settings-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(21, 66, 18, 0.25);
+    background: var(--color-primary);
+}
+
+.btn-settings-outline {
+    width: 100%;
+    background: var(--color-surface-container-lowest);
+    border: 1px solid var(--color-outline-variant);
+    color: var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    font-family: var(--font-headline);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    transition: all 0.2s;
+}
+
+.btn-settings-outline:hover {
+    background: var(--color-surface-container-low);
+}
+
+/* 7. Verification Status */
+.settings-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border: 1px solid #d1fae5;
+}
+
+.settings-status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+/* 6. Action Buttons */
+/* 6. Toggle Switches */
+.settings-toggle {
+    width: 56px;
+    height: 28px;
+    background: var(--color-surface-container-highest);
+    border-radius: 99px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.settings-toggle--active {
+    background: var(--color-primary);
+}
+
+.settings-toggle__dot {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.settings-toggle--active .settings-toggle__dot {
+    left: 32px;
+}
+
+/* 7. Summary Cards (Stock Intelligence) */
+.settings-summary-card {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(21, 66, 18, 0.15);
+}
+
+.settings-summary-card__icon {
+    color: var(--color-tertiary-container);
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+}
+
+.settings-progress-container {
+    margin-top: var(--space-lg);
+}
+
+.settings-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.625rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.settings-progress-bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.settings-progress-fill {
+    height: 100%;
+    background: var(--color-tertiary-container);
+    border-radius: 99px;
+    transition: width 1s ease-out;
+}
+
+/* 8. Security & Action Items */
+.settings-action-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-surface-container-low);
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    width: 100%;
+    cursor: pointer;
+}
+
+.settings-action-item:hover {
+    background: var(--color-surface-container);
+    border-color: var(--color-outline-variant);
+}
+
+.settings-action-item__title {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.settings-badge {
+    font-size: 0.625rem;
+    font-weight: 800;
+    background: rgba(21, 66, 18, 0.1);
+    color: var(--color-primary);
+    padding: 0.4rem 0.75rem;
+    border-radius: 99px;
+    border: 1px solid rgba(21, 66, 18, 0.2);
+}
+
+.btn-settings-danger {
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--color-error-container);
+    color: var(--color-error);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    transition: all 0.2s;
+}
+
+.btn-settings-danger:hover {
+    background: var(--color-error-container);
+}
+
+/* 9. Toast Notifications */
+.settings-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--color-on-surface);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-headline);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.settings-toast--visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.settings-toast--success {
+    border-left: 4px solid var(--color-primary);
+}
+
+.settings-toast--error {
+    border-left: 4px solid var(--color-error);
+}
+
+.settings-toast span.material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+/* 10. Modals */
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: none; /* Controlled by JS */
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.2s ease;
+}
+
+.settings-modal--visible {
+    display: flex;
+}
+
+.settings-modal__box {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 32px 64px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-modal__header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--color-outline-variant);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settings-modal__title {
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+}
+
+.settings-modal__close {
+    background: none;
+    border: none;
+    color: var(--color-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.settings-modal__close:hover {
+    color: var(--color-primary);
+}
+
+.settings-modal__body {
+    padding: 2rem;
+}
+
+.settings-modal__footer {
+    padding: 1.5rem 2rem;
+    background: var(--color-surface-container-low);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+

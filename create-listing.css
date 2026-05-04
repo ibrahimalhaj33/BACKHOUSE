@@ -1,0 +1,405 @@
+/* ─── Create Listing Page Styles ────────────────────────── */
+
+/* 1. Header & Breadcrumbs */
+.create-header {
+    margin-bottom: var(--space-xl);
+}
+
+.create-header__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+    .create-header__content {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: var(--space-3xl);
+    }
+}
+
+.create-header__info {
+    flex: 1;
+    max-width: 48rem;
+}
+
+.create-header__title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-on-surface);
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-xs);
+}
+
+.create-header__subtitle {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* 2. Completion Progress Card */
+.create-progress {
+    background: var(--color-surface-low);
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create-progress__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xs);
+}
+
+.create-progress__label {
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.create-progress__percentage {
+    font-size: 0.875rem;
+    font-weight: 900;
+    color: #10B981;
+}
+
+.create-progress__bar {
+    height: 8px;
+    background: var(--color-surface-high);
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.create-progress__fill {
+    height: 100%;
+    background: #10B981;
+    border-radius: 100px;
+}
+
+/* 3. Form Grid Layout */
+.create-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding-bottom: 8rem; /* Space for fixed footer */
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .create-form-grid {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+.create-form-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* 4. Form Cards (Bento Sections) */
+.form-card {
+    background: var(--color-surface-lowest);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: 1.5rem;
+    padding: var(--space-xl);
+    transition: var(--transition-base);
+}
+
+.form-card:hover {
+    border-color: var(--color-outline);
+}
+
+.form-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.form-card__header--split {
+    justify-content: space-between;
+}
+
+.form-card__header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.form-card__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+}
+
+.form-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: var(--font-headline);
+}
+
+.form-card__counter {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+/* 5. Form Fields */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.form-input-group {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: var(--color-surface-low);
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    padding: 0.75rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-on-surface);
+    transition: var(--transition-fast);
+}
+
+.form-select--small {
+    width: 100px;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #10B981;
+    background: var(--color-surface-lowest);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.05);
+}
+
+/* 6. Image Upload Section */
+.image-upload {
+    border: 2px dashed var(--color-outline-variant);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    text-align: center;
+    background: var(--color-surface);
+    cursor: pointer;
+    transition: var(--transition-base);
+    margin-bottom: var(--space-lg);
+}
+
+.image-upload:hover {
+    border-color: #10B981;
+    background: rgba(16, 185, 129, 0.02);
+}
+
+.image-upload__icon {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.image-upload__text {
+    font-weight: 600;
+    color: var(--color-on-surface);
+}
+
+.image-upload__hint {
+    font-size: 0.8125rem;
+    color: var(--color-secondary);
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+}
+
+.image-preview {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface-low);
+    border: 1px solid var(--color-outline-variant);
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-preview__badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #10B981;
+    color: #fff;
+    font-size: 0.625rem;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+}
+
+.image-preview__delete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: var(--color-error);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.image-preview:hover .image-preview__delete {
+    opacity: 1;
+}
+
+/* 7. Tips Section */
+.tips-card {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 1.5rem;
+    padding: var(--space-xl);
+}
+
+.tips-card__label {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: #10B981;
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+    display: block;
+}
+
+.tips-card__text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-on-surface);
+}
+
+/* 8. Fixed Footer Bar */
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-outline-variant);
+    padding: var(--space-lg) var(--space-2xl);
+    z-index: 100;
+}
+
+@media (min-width: 1024px) {
+    .footer-bar {
+        left: 16rem; /* Offset for sidebar (matches .dashboard-layout) */
+    }
+}
+
+.footer-bar__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .footer-bar__container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.footer-bar__actions {
+    display: flex;
+    gap: var(--space-md);
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .footer-bar__actions {
+        width: auto;
+    }
+}
+
+.btn-draft {
+    flex: 1;
+    background: var(--color-surface-low);
+    color: var(--color-on-surface);
+    font-weight: 700;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.btn-publish {
+    flex: 1;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    font-weight: 900;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+    transition: var(--transition-base);
+}
+
+.btn-publish:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+}

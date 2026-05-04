@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | BackHouse</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation (Full Restore with Active State Fixes) -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <!-- Content injected by app.js -->
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 80%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 90%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+
+        <!-- Top Header Area (Rule 1: Exact copy from dashboard.html) -->
+        <header class="dashboard-header">
+            <div class="dashboard-header__left">
+                <h2 class="dashboard-header__title">Marketplace</h2>
+                <div class="dashboard-header__divider"></div>
+                <div class="dashboard-header__date">
+                    <span class="material-symbols-outlined" style="font-size: 1rem;">search</span>
+                    <input type="text" placeholder="Search marketplace..." style="border:none; outline:none; background:transparent; font-size: 0.875rem; width: 300px;">
+                </div>
+            </div>
+            <div class="dashboard-header__actions">
+                <button class="dashboard-header__btn" aria-label="Notifications">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="dashboard-header__dot"></span>
+                </button>
+                <button class="dashboard-header__btn" aria-label="Profile">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Marketplace Content (Rule 2: Isolated Wrapper) -->
+        <main class="dashboard-main browse-dash-isolated-wrapper">
+            <div class="browse-dash-isolated">
+                
+                <!-- Filters SidebarSection -->
+                <aside class="filters-sidebar">
+                    <div class="filters-sidebar-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <h2 class="font-manrope" style="font-weight: 700; font-size: 1.25rem;">Filters</h2>
+                        <button class="text-primary" style="font-size: 0.75rem; font-weight: 600; border: none; background: transparent; cursor: pointer;">Reset All</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <!-- Search Location Radius -->
+                        <div class="space-y-4">
+                            <label class="font-inter" style="font-size: 0.875rem; font-weight: 600; display: flex; justify-content: space-between;">
+                                Search Radius
+                                <span style="color: #059669; font-weight: 700;">25 km</span>
+                            </label>
+                            <input class="accent-emerald-500" max="50" min="1" type="range" value="25" style="width: 100%; height: 4px; border-radius: 9999px; cursor: pointer;">
+                            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #7c7a7d; text-transform: uppercase; font-weight: 700;">
+                                <span>1 km</span>
+                                <span>50 km</span>
+                            </div>
+                        </div>
+
+                        <!-- Category Checkboxes -->
+                        <div class="space-y-3">
+                            <label class="font-inter" style="font-size: 0.875rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Categories</label>
+                            <div style="display: grid; gap: 0.5rem;">
+                                <label class="checklist-item">
+                                    <input checked type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Excess Produce</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Dry Goods & Pantry</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Packaging Materials</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input checked type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Industrial Equipment</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Furniture & Fixtures</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Listing Attributes -->
+                        <div class="space-y-3">
+                            <label class="font-inter" style="font-size: 0.875rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Listing Attributes</label>
+                            <div style="display: grid; gap: 0.5rem;">
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Bulk Quantities Only</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Available for Pickup</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span class="ml-3 font-inter" style="font-size: 0.875rem; font-weight: 500;">Verified Sellers</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="space-y-4">
+                            <label class="font-inter" style="font-size: 0.875rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Price Range (JD)</label>
+                            <div style="display: flex; gap: 1rem;">
+                                <input class="bg-surface-container-low" placeholder="Min" type="number" style="width: 50%; padding: 0.5rem; border-radius: 0.5rem; border: none; font-size: 0.875rem; outline: none;">
+                                <input class="bg-surface-container-low" placeholder="Max" type="number" style="width: 50%; padding: 0.5rem; border-radius: 0.5rem; border: none; font-size: 0.875rem; outline: none;">
+                            </div>
+                        </div>
+
+                        <!-- Minimum Weight -->
+                        <div class="space-y-4">
+                            <label class="font-inter" style="font-size: 0.875rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Minimum Weight</label>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; background-color: #f7f2f4; padding: 0.5rem 0.75rem; border-radius: 0.5rem;">
+                                <input class="bg-transparent" placeholder="0" type="number" style="width: 100%; border: none; font-size: 0.875rem; outline: none;">
+                                <span style="font-size: 0.75rem; font-weight: 700; color: #7c7a7d;">KG</span>
+                            </div>
+                        </div>
+
+                        <!-- Expiry Date Filter -->
+                        <div class="space-y-3">
+                            <label class="font-inter" style="font-size: 0.875rem; font-weight: 600; display: block; margin-bottom: 0.75rem;">Listing Expiry</label>
+                            <select style="width: 100%; padding: 0.75rem; border-radius: 0.75rem; background-color: #f7f2f4; border: none; font-size: 0.875rem; outline: none;">
+                                <option>Next 24 hours</option>
+                                <option selected>Next 7 days</option>
+                                <option>Next 30 days</option>
+                                <option>Anytime</option>
+                            </select>
+                        </div>
+
+                        <!-- Save Search Button -->
+                        <button class="save-search-btn">
+                            <span class="material-symbols-outlined" style="font-size: 1.25rem;">bookmark</span>
+                            Save Search
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Main Listing Area -->
+                <div class="main-listings">
+                    <div class="main-listings-container">
+                        <!-- Map Integration(Bento Style) -->
+                        <div class="bento-map">
+                            <img alt="Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiNywx97dFSyfspFEg_XyDd9a2WA3G4bI6OHB9yHmFFMlOliUT96MWS2MHeyVAiY0zGJS8NHZAHbAJdzZ1kB5ku5rXyBd2aEaTNgdTw3RueO28y44mfTfqaHkL4yIXytyKRog5HnJvO8D6JwSHT_XFgFW1VONk7feRhoL-g6_NExzm6qxvRxm631fWGuT6ywGp2vhUApY65T37p9auWBgDtDhKfRCr8rUWSH1vzDJnHNDvrBaueMGBBqPOd9V9hJoj4bHLtOIeYEq6">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(51, 50, 53, 0.2), transparent); pointer-events: none;"></div>
+                            <div class="map-indicator glass-panel">
+                                <div class="map-pulse"></div>
+                                <span style="font-size: 10px; font-weight: 700;">12 Nearby Listings</span>
+                            </div>
+                            <!-- Mock Pins -->
+                            <div class="map-pin" style="top: 40%; left: 30%;">
+                                <div class="map-pin-inner">
+                                    <span class="material-symbols-outlined" style="font-size: 12px; color: white;">eco</span>
+                                </div>
+                            </div>
+                            <div class="map-pin" style="top: 60%; left: 55%;">
+                                <div class="map-pin-inner">
+                                    <span class="material-symbols-outlined" style="font-size: 12px; color: white;">eco</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listings Grid -->
+                        <div class="listings-grid">
+                            <!-- Card 1 -->
+                            <article class="listing-card">
+                                <div class="card-image-wrap">
+                                    <img alt="Pallets" src="download.jfif">
+                                    <button class="card-fav-btn glass-panel" data-product-id="Flour">
+                                        <span class="material-symbols-outlined" style="font-size: 1.125rem;">favorite</span>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <h3 class="card-title">Flour</h3>
+                                        <span class="card-price">JD 125</span>
+                                    </div>
+                                    <div class="card-tags">
+                                        <span class="card-tag">Qty: 50 units</span>
+                                        <span class="card-tag card-tag-emerald">3.2 km away</span>
+                                    </div>
+                                    <div class="card-seller">
+                                        <div class="seller-avatar">SM</div>
+                                        <div>
+                                            <p class="seller-name">SupplyMasters Co.</p>
+                                            <div class="seller-rating">
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span style="color: #605e61; margin-left: 4px;">(48)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn-details">View Details</button>
+                                        <button class="btn-cart">
+                                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Card 2 -->
+                            <article class="listing-card">
+                                <div class="card-image-wrap">
+                                    <img alt="Peppers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2CKt_JDK-6GVGpGMEiZACLgSoU7UKyc5vM4PIGDmDpEnd3OH2HZEEDHrcn-vASSshWRnFlgaGbJxKSTOT_sU8-xBTl5oCLBjH0TTXhSnuNW3X9cDamvgzhRr5HoKJMAidZ8Ah_15bvUL6IGKU1BwLVUr4Uib74ssxxm4h62I9gGs6pY0EDJvrOa92cMrMhUw4gOhEmYpoAEeVt-C-AgXDhSn6i_sRS7RYpj7MAphTKxr154T-VVRnjRO_5YN8j82YFkrt8aPfIGEC">
+                                    <div class="card-badge">
+                                        <span class="material-symbols-outlined" style="font-size: 14px;">timer</span> Expiring Soon
+                                    </div>
+                                    <button class="card-fav-btn glass-panel" data-product-id="prod_bell_peppers">
+                                        <span class="material-symbols-outlined" style="font-size: 1.125rem;">favorite</span>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <h3 class="card-title">Heirloom Bell Peppers</h3>
+                                        <span class="card-price">JD 45</span>
+                                    </div>
+                                    <div class="card-tags">
+                                        <span class="card-tag">Qty: 25 kg</span>
+                                        <span class="card-tag card-tag-emerald">1.5 km away</span>
+                                    </div>
+                                    <div class="card-seller">
+                                        <img alt="Seller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7oufNI8g8E3Mt4Msvv07v6AjF6FlweOf0rZr7xtgYnUQKSwkPiheisC2Gv1_ZckwIeTB2V4clWnfFEisjJpFrg5AFqqaX0h0Ig632-a2fLu-90pEF2DGyqvhRFTXQVm7WQqXYW1rZJJ-Ys1rAizUkFFdKNH--Iq0WVy2U5YXHSBDUvazPMZY-x8Loq1GbYG-UaLBumNb4XB3NlZv9fORqfQFUOqBAWoePkdfbWsLNfJVfOAXnGYrY4x6WZp3wAm6XCEeZz-lqF4vB" style="width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover;">
+                                        <div>
+                                            <p class="seller-name">Green Valley Organics</p>
+                                            <div class="seller-rating">
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 0;">star_half</span>
+                                                <span style="color: #605e61; margin-left: 4px;">(112)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn-details">View Details</button>
+                                        <button class="btn-cart">
+                                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Card 3 -->
+                            <article class="listing-card">
+                                <div class="card-image-wrap">
+                                    <img alt="Cardboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtgBnvNlYmBcLvVMAaKxt8I_UaCfpYOFzdocI-NwWShayqzx5W-LSuJmv0lnxp-8ievhH72zoht8YIN0r5l8-bsoiGxNxhLQGTXB9heZ6UMMsywxcSlSnal0jVcsZitS-uDPtFAjMRzBgalg5FR65soBQhUnhr7xSAX6Q9VwWMX_XinRbZJ5STJSzuzeC-79Fkkf562ZSjU57N3jZlVsVjGEnLYJ5HpTjm2diuCsGFy1aPknG28sQfzLs0ZgPwBUrneu-yvVsXK3us">
+                                    <button class="card-fav-btn glass-panel" data-product-id="prod_cardboard_oak">
+                                        <span class="material-symbols-outlined" style="font-size: 1.125rem;">favorite</span>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <h3 class="card-title">Corrugated Cardboard</h3>
+                                        <span class="card-price">Free</span>
+                                    </div>
+                                    <div class="card-tags">
+                                        <span class="card-tag">Qty: 500 kg</span>
+                                        <span class="card-tag card-tag-emerald">5.8 km away</span>
+                                    </div>
+                                    <div class="card-seller">
+                                        <div class="seller-avatar" style="background-color: #059669; color: white;">RE</div>
+                                        <div>
+                                            <p class="seller-name">EcoPack Solutions</p>
+                                            <div class="seller-rating">
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span class="material-symbols-outlined" style="font-size: 12px; font-variation-settings: 'FILL' 1;">star</span>
+                                                <span style="color: #605e61; margin-left: 4px;">(14)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn-details">View Details</button>
+                                        <button class="btn-cart">
+                                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="page-btn">
+                                <span class="material-symbols-outlined" style="font-size: 1.25rem;">chevron_left</span>
+                            </button>
+                            <button class="page-btn page-btn-active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <div style="color: #7c7a7d;">...</div>
+                            <button class="page-btn">12</button>
+                            <button class="page-btn">
+                                <span class="material-symbols-outlined" style="font-size: 1.25rem;">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Logic -->
+    <script src="listings-data.js"></script>
+    <script src="app.js"></script>
+    <script src="browse-dash.js"></script>
+
+</body>
+</html>

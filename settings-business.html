@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Profile | BackHouse Settings</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation (Dynamically Loaded) -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <!-- Loader placeholder -->
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 80%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="dashboard-main-container">
+            <!-- Header (Synced breadcrumbs) -->
+            <header class="dashboard-header">
+                <div class="dashboard-header__left">
+                    <h2 class="dashboard-header__title">Settings</h2>
+                    <div class="dashboard-header__divider"></div>
+                    <div class="dashboard-header__date">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">chevron_right</span>
+                        <span>Business Profile</span>
+                    </div>
+                </div>
+                <div class="dashboard-header__actions">
+                    <button class="dashboard-header__btn" aria-label="Notifications">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="dashboard-header__dot"></span>
+                    </button>
+                    <!-- User profile is injected by app.js -->
+                    <button class="dashboard-header__btn" aria-label="Profile">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                
+                <!-- Hero Section -->
+                <section class="settings-hero">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; gap: 2rem;">
+                        <div>
+                            <h1 class="settings-hero__title">Business Profile</h1>
+                            <p class="settings-hero__desc">Manage your organizational identity, physical locations, and public-facing presence in the circular marketplace.</p>
+                        </div>
+                        
+                        <!-- Verification Badge (Premium Style) -->
+                        <div class="settings-status-badge">
+                            <div class="settings-status-dot"></div>
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 1.125rem;">verified</span>
+                            <span>VERIFIED BUSINESS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="settings-grid">
+                    
+                    <!-- Left Column: Core Info & Map -->
+                    <div class="settings-content">
+                        
+                        <!-- Core Information Card -->
+                        <section class="settings-card">
+                            <div class="settings-card__header">
+                                <h3 class="settings-card__title">
+                                    <span class="material-symbols-outlined">corporate_fare</span>
+                                    Core Information
+                                </h3>
+                            </div>
+                            
+                            <form class="settings-form">
+                                <div class="settings-group">
+                                    <label class="settings-label" for="biz-name">Business Name</label>
+                                    <input type="text" id="biz-name" class="settings-input" value="BackHouse Logistics Corp" placeholder="Enter business name">
+                                </div>
+                                <div class="settings-group">
+                                    <label class="settings-label" for="biz-email">Contact Email</label>
+                                    <input type="email" id="biz-email" class="settings-input" value="operations@backhouse.eco" placeholder="Enter email">
+                                </div>
+                                <div class="settings-group">
+                                    <label class="settings-label" for="biz-phone">Primary Phone</label>
+                                    <input type="tel" id="biz-phone" class="settings-input" value="+1 (555) 098-7721" placeholder="Enter phone number">
+                                </div>
+                                <div class="settings-group">
+                                    <label class="settings-label" for="biz-address">Headquarters Address</label>
+                                    <input type="text" id="biz-address" class="settings-input" value="482 Green Way, Silicon Valley, CA" placeholder="Enter full address">
+                                </div>
+                                
+                                <div style="grid-column: 1 / -1; height: 1px; background: var(--color-outline-variant); margin: var(--space-md) 0;"></div>
+
+                                <div class="settings-group">
+                                    <label class="settings-label">Business Type</label>
+                                    <div style="position: relative;">
+                                        <input type="text" class="settings-input settings-input--readonly" value="Sustainable Logistics" readonly>
+                                        <span class="material-symbols-outlined" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 1rem; opacity: 0.5;">lock</span>
+                                    </div>
+                                </div>
+                                <div class="settings-group">
+                                    <label class="settings-label">Registration Number</label>
+                                    <div style="position: relative;">
+                                        <input type="text" class="settings-input settings-input--readonly" value="REG-992-004-BLC" readonly>
+                                        <span class="material-symbols-outlined" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 1rem; opacity: 0.5;">lock</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+
+                        <!-- Precise Location Card -->
+                        <section class="settings-card">
+                            <div class="settings-card__header">
+                                <h3 class="settings-card__title">
+                                    <span class="material-symbols-outlined">map</span>
+                                    Precise Location
+                                </h3>
+                                <button style="background: none; border: none; font-size: 0.6875rem; font-weight: 800; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;">Locate Me</button>
+                            </div>
+                            
+                            <div class="settings-map-container">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_McN5PMRcRxGnl76wiQPK3M_RnY9I2uPr_BQySAbV9WNFtlLEEGTV1jmEH7An5WOFot_au_SbCUj9khRZrmoKDoTiDVLwVtEVh-V7-FMyssQNSfZqUueHFCz6S_UxdgCFuZslzYNmvFtipBcM7Z6IJucORPuU4ATWT93ca1_AwGVtM01AZEW0pVXAH2gT1z0bsdpUaCKP9mF8zo8jhy0R8LODvBWBFwPU51XQg0LBDSXcph1Eawtat81aiZ1DUv1Jx-J8tLtbR-1l" alt="Business Map Location" class="settings-map-img">
+                                <div class="settings-map-marker material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 3rem;">location_on</div>
+                            </div>
+                            <p style="font-size: 0.75rem; color: var(--color-secondary); margin-top: 1rem; text-align: center;">Drag the marker to pinpoint your pickup/delivery entrance for logistical precision.</p>
+                        </section>
+
+                    </div>
+
+                    <!-- Right Column: Actions -->
+                    <div class="settings-sidebar">
+                        <div class="settings-actions">
+                            <button class="btn-settings-primary" id="btn-update-profile">
+                                Update Profile
+                                <span class="material-symbols-outlined">check_circle</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="height: 4rem;"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="listings-data.js"></script>
+    <script src="app.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

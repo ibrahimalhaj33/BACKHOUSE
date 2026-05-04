@@ -1,0 +1,122 @@
+<div class="dashboard-sidebar__brand">
+    <div class="dashboard-sidebar__icon-box">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">recycling</span>
+    </div>
+    <div>
+        <h1 class="dashboard-sidebar__logo">BackHouse</h1>
+        <p class="dashboard-sidebar__subtitle">Circular Economy</p>
+    </div>
+</div>
+
+<nav class="dashboard-sidebar__nav">
+    <!-- 1. Dashboard -->
+    <a class="dashboard-nav-item" href="dashboard.html">
+        <div class="dashboard-nav-item__left">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span>Dashboard</span>
+        </div>
+    </a>
+
+    <!-- 2. Marketplace -->
+    <div class="dashboard-nav-dropdown">
+        <button class="dashboard-nav-item">
+            <div class="dashboard-nav-item__left">
+                <span class="material-symbols-outlined">storefront</span>
+                <span>Marketplace</span>
+            </div>
+            <span class="material-symbols-outlined dashboard-nav-item__caret">expand_more</span>
+        </button>
+        <div class="dashboard-nav-dropdown__content">
+            <a href="browse-dash.html" class="dashboard-nav-subitem">Browse Listings</a>
+            <a href="favorites.html" class="dashboard-nav-subitem">Favorites</a>
+            <a href="saved-searches.html" class="dashboard-nav-subitem">Saved Searches</a>
+        </div>
+    </div>
+
+    <!-- 3. My Listings -->
+    <div class="dashboard-nav-dropdown">
+        <button class="dashboard-nav-item">
+            <div class="dashboard-nav-item__left">
+                <span class="material-symbols-outlined">package</span>
+                <span>My Listings</span>
+            </div>
+            <div class="dashboard-nav-item__left">
+                <span class="dashboard-nav-badge dashboard-nav-badge--amber">2</span>
+                <span class="material-symbols-outlined dashboard-nav-item__caret">expand_more</span>
+            </div>
+        </button>
+        <div class="dashboard-nav-dropdown__content">
+            <a href="all-listings.html" class="dashboard-nav-subitem">All Listings</a>
+            <a href="create-listing.html" class="dashboard-nav-subitem">Create New Listing</a>
+            <a href="edit-listing.html" class="dashboard-nav-subitem">Edit Listing</a>
+        </div>
+    </div>
+
+    <!-- 4. Transactions -->
+    <div class="dashboard-nav-dropdown">
+        <button class="dashboard-nav-item">
+            <div class="dashboard-nav-item__left">
+                <span class="material-symbols-outlined">payments</span>
+                <span>Transactions</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="dashboard-nav-badge dashboard-nav-badge--primary" id="nav-badge-transactions" style="display: none;">0</span>
+                <span class="material-symbols-outlined dashboard-nav-item__caret">expand_more</span>
+            </div>
+        </button>
+        <div class="dashboard-nav-dropdown__content">
+            <a href="sales-seller.html" class="dashboard-nav-subitem">Sales (As Seller)</a>
+            <a href="my-purchases.html" class="dashboard-nav-subitem">Purchases (As Buyer)</a>
+        </div>
+    </div>
+
+    <!-- 5. Messages -->
+    <a class="dashboard-nav-item" id="nav-messages" href="messages.html">
+        <div class="dashboard-nav-item__left">
+            <span class="material-symbols-outlined">chat_bubble</span>
+            <span>Messages</span>
+        </div>
+        <span class="dashboard-nav-badge dashboard-nav-badge--primary" id="nav-badge-messages" style="display: none;">0</span>
+    </a>
+
+    <!-- 6. Ratings -->
+    <a class="dashboard-nav-item" id="nav-ratings" href="ratings.html">
+        <div class="dashboard-nav-item__left">
+            <span class="material-symbols-outlined">star</span>
+            <span>Ratings</span>
+        </div>
+    </a>
+
+    <!-- 9. Settings -->
+    <div class="dashboard-nav-dropdown">
+        <button class="dashboard-nav-item">
+            <div class="dashboard-nav-item__left">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Settings</span>
+            </div>
+            <span class="material-symbols-outlined dashboard-nav-item__caret">expand_more</span>
+        </button>
+        <div class="dashboard-nav-dropdown__content">
+            <a href="settings-business.html" class="dashboard-nav-subitem">Business Profile</a>
+            <a href="settings-account.html" class="dashboard-nav-subitem">Account Settings</a>
+        </div>
+    </div>
+</nav>
+
+<div class="dashboard-sidebar__footer">
+    <div class="dashboard-lang">
+        <div class="dashboard-nav-item__left">
+            <span class="material-symbols-outlined">language</span>
+            <span style="font-size: 0.75rem; font-weight: 500; color: var(--color-secondary);">Language</span>
+        </div>
+        <div class="dashboard-lang__toggle">
+            <span class="dashboard-lang__active">EN</span>
+            <span style="color: var(--color-surface-high);">|</span>
+            <span class="dashboard-lang__inactive">AR</span>
+        </div>
+    </div>
+    <a href="login.html" class="dashboard-logout">
+        <span class="material-symbols-outlined">logout</span>
+        <span>Logout</span>
+    </a>
+</div>
