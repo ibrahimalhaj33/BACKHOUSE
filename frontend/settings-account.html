@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | BackHouse Settings</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation (Dynamically Loaded) -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <!-- Loader placeholder -->
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="dashboard-main-container">
+            <!-- Header (Synced breadcrumbs) -->
+            <header class="dashboard-header">
+                <div class="dashboard-header__left">
+                    <h2 class="dashboard-header__title">Settings</h2>
+                    <div class="dashboard-header__divider"></div>
+                    <div class="dashboard-header__date">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">chevron_right</span>
+                        <span>Account Settings</span>
+                    </div>
+                </div>
+                <div class="dashboard-header__actions">
+                    <button class="dashboard-header__btn" aria-label="Notifications">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="dashboard-header__dot"></span>
+                    </button>
+                    <button class="dashboard-header__btn" aria-label="Profile">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                
+                <!-- Hero Section -->
+                <section class="settings-hero">
+                    <h1 class="settings-hero__title">The Digital Concierge</h1>
+                    <p class="settings-hero__desc">Refine your circular ecosystem. Manage your workspace preferences, notification triggers, and regional settings with architectural precision.</p>
+                </section>
+
+                <div class="settings-grid">
+                    
+                    <!-- Left Column: Notifications & Region -->
+                    <div class="settings-content">
+                        
+                        <!-- Notification Preferences -->
+                        <section class="settings-card">
+                            <div class="settings-card__header">
+                                <h3 class="settings-card__title">
+                                    <span class="material-symbols-outlined">mail_lock</span>
+                                    Notification Preferences
+                                </h3>
+                            </div>
+                            
+                            <div class="settings-form" style="gap: var(--space-2xl);">
+                                <!-- High Level Toggles -->
+                                <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                                    <div class="settings-action-item">
+                                        <div style="display: flex; align-items: center; gap: var(--space-md);">
+                                            <span class="material-symbols-outlined" style="color: var(--color-primary);">alternate_email</span>
+                                            <div>
+                                                <p style="font-weight: 700; font-family: var(--font-headline);">Email Notifications</p>
+                                                <p style="font-size: 0.75rem; color: var(--color-secondary);">Daily digest and logistics alerts</p>
+                                            </div>
+                                        </div>
+                                        <button class="settings-toggle settings-toggle--active" id="toggle-email">
+                                            <div class="settings-toggle__dot"></div>
+                                        </button>
+                                    </div>
+
+                                    <div class="settings-action-item">
+                                        <div style="display: flex; align-items: center; gap: var(--space-md);">
+                                            <span class="material-symbols-outlined" style="color: var(--color-primary);">sms</span>
+                                            <div>
+                                                <p style="font-weight: 700; font-family: var(--font-headline);">SMS Alerts</p>
+                                                <p style="font-size: 0.75rem; color: var(--color-secondary);">Critical stock warnings</p>
+                                            </div>
+                                        </div>
+                                        <button class="settings-toggle" id="toggle-sms">
+                                            <div class="settings-toggle__dot"></div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Detailed Checkboxes -->
+                                <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                                    <label class="settings-action-item" style="cursor: pointer;">
+                                        <div style="display: flex; align-items: center; gap: var(--space-md);">
+                                            <input type="checkbox" id="check-new-messages" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                                            <div>
+                                                <p style="font-size: 0.875rem; font-weight: 700;">New messages</p>
+                                                <p style="font-size: 0.6875rem; color: var(--color-secondary);">Direct marketplace communications</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="settings-action-item" style="cursor: pointer;">
+                                        <div style="display: flex; align-items: center; gap: var(--space-md);">
+                                            <input type="checkbox" id="check-transactions" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                                            <div>
+                                                <p style="font-size: 0.875rem; font-weight: 700;">Transaction updates</p>
+                                                <p style="font-size: 0.6875rem; color: var(--color-secondary);">Status changes for active orders</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                     
+                   
+
+                    <!-- Right Column: Summary & Security -->
+                    <div class="settings-sidebar" style="padding-top: 0;">
+                        
+                        
+
+                        <!-- Security Card -->
+                        <section class="settings-card">
+                            <div class="settings-card__header">
+                                <h3 class="settings-card__title">
+                                    <span class="material-symbols-outlined">security</span>
+                                    Security Actions
+                                </h3>
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                                <button class="settings-action-item" id="btn-open-password">
+                                    <span class="settings-action-item__title">Change Password</span>
+                                    <span class="material-symbols-outlined" style="opacity: 0.4;">arrow_forward</span>
+                                </button>
+                                
+                                <div class="settings-action-item" style="cursor: default;">
+                                    <span class="settings-action-item__title">Two-Factor Auth</span>
+                                    <span class="settings-badge">ACTIVE</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Final Actions -->
+                        <div class="settings-actions">
+                            <button class="btn-settings-primary" id="btn-update-account">
+                                Update Preferences
+                                <span class="material-symbols-outlined">check_circle</span>
+                            </button>
+                            <button class="btn-settings-danger" id="btn-deactivate">
+                                <span class="material-symbols-outlined">person_remove</span>
+                                Deactivate Account
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div style="height: 4rem;"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="settings-modal" id="modal-password">
+        <div class="settings-modal__box">
+            <div class="settings-modal__header">
+                <h3 class="settings-modal__title">Update Security</h3>
+                <button class="settings-modal__close" id="btn-close-password">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <div class="settings-modal__body">
+                <p style="font-size: 0.875rem; color: var(--color-secondary); margin-bottom: 1.5rem;">For your protection, please verify your identity before changing your password.</p>
+                
+                <div class="settings-form" style="grid-template-columns: 1fr;">
+                    <div class="settings-group">
+                        <label class="settings-label">Current Password <span style="color: var(--color-error);">*</span></label>
+                        <input type="password" id="old-pass" class="settings-input" placeholder="••••••••">
+                    </div>
+                    
+                    <div style="height: 1px; background: var(--color-outline-variant); margin: 0.5rem 0;"></div>
+
+                    <div class="settings-group">
+                        <label class="settings-label">New Password</label>
+                        <input type="password" id="new-pass" class="settings-input" placeholder="Min. 8 characters">
+                    </div>
+                    <div class="settings-group">
+                        <label class="settings-label">Confirm New Password</label>
+                        <input type="password" id="confirm-pass" class="settings-input" placeholder="Repeat new password">
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-modal__footer">
+                <button class="btn-settings-outline" id="btn-cancel-password" style="width: auto; padding: 0.75rem 1.5rem;">Cancel</button>
+                <button class="btn-settings-primary" id="btn-save-password" style="width: auto; padding: 0.75rem 1.5rem; box-shadow: none;">Update Password</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="listings-data.js?v=35"></script>
+    <script src="ui-modals.js?v=35"></script>
+    <script src="app.js?v=43"></script>
+    <script src="settings.js?v=35"></script>
+</body>
+</html>

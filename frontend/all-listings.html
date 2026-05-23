@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Listings | BackHouse</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="styles.css?v=5">
+    <style>
+        .listings-filter-panel {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+            animation: filterPanelSlide 0.2s ease-out;
+        }
+        @keyframes filterPanelSlide {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .listings-filter-panel[hidden] { display: none !important; }
+        .listings-filter-panel__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .listings-filter-panel__header h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .filter-panel__close {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            display: flex;
+            align-items: center;
+            padding: 0.25rem;
+            border-radius: 6px;
+        }
+        .filter-panel__close:hover { background: rgba(0,0,0,0.05); }
+        .listings-filter-panel__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+        .filter-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .filter-field label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #4a4a4a;
+        }
+        .listings-filter-panel__actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 1rem;
+        }
+        .form-input--small, .form-select--small {
+            padding: 0.5rem 0.7rem;
+            font-size: 0.875rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.12);
+            background: #fff;
+            color: #1a1a1a;
+            width: 100%;
+        }
+
+        /* ─── Confirmation modal ─── */
+        .confirm-modal__overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: confirmFadeIn 0.15s ease-out;
+        }
+        @keyframes confirmFadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .confirm-modal {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            padding: 1.75rem;
+            width: 360px;
+            max-width: 90vw;
+            animation: confirmPop 0.18s ease-out;
+        }
+        @keyframes confirmPop {
+            from { opacity: 0; transform: scale(0.92); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        .confirm-modal__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(239, 68, 68, 0.12);
+            color: #ef4444;
+            margin: 0 auto 0.75rem auto;
+        }
+        .confirm-modal__icon .material-symbols-outlined {
+            font-size: 28px;
+        }
+        .confirm-modal__title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin: 0 0 0.5rem 0;
+        }
+        .confirm-modal__message {
+            font-size: 0.875rem;
+            color: #555;
+            text-align: center;
+            margin: 0 0 1.5rem 0;
+            line-height: 1.5;
+        }
+        .confirm-modal__actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .confirm-modal__btn {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            border-radius: 10px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: filter 0.15s, transform 0.05s;
+        }
+        .confirm-modal__btn--cancel {
+            background: #f3f4f6;
+            color: #1a1a1a;
+        }
+        .confirm-modal__btn--cancel:hover { background: #e5e7eb; }
+        .confirm-modal__btn--danger {
+            background: #ef4444;
+            color: #fff;
+        }
+        .confirm-modal__btn--danger:hover { filter: brightness(1.05); }
+        .confirm-modal__btn:active { transform: scale(0.98); }
+
+        /* ─── Product column sizing: give the first column enough room ─── */
+        #listings-table-body td:first-child,
+        .listings-manager table thead th:first-child {
+            width: 320px;
+            min-width: 280px;
+            max-width: 360px;
+        }
+        .listings-product {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 0;        /* allow children to shrink */
+        }
+        .listings-product__img {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .listings-product__img--placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            color: #aaa;
+            border: 1px dashed rgba(0,0,0,0.12);
+        }
+        .listings-product__img--placeholder .material-symbols-outlined {
+            font-size: 24px;
+        }
+        .listings-product__info {
+            min-width: 0;
+            flex: 1;
+            overflow: hidden;
+        }
+        .listings-product__info p {
+            margin: 0;
+            font-weight: 600;
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            line-height: 1.3;
+        }
+        .listings-product__sku {
+            display: block;
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 2px;
+        }
+    </style>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="all-listings.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation (Dynamically Loaded) -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 80%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 90%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="dashboard-main">
+            
+            <!-- Header Section -->
+            <header class="listings-header">
+                <div class="listings-header__text">
+                    <h1 class="listings-header__title">My Listings Management</h1>
+                    <p class="listings-header__subtitle">Optimize your surplus inventory and track sustainability impact across the circular ecosystem.</p>
+                </div>
+                <div class="listings-header__cta">
+                    <button class="btn-primary" onclick="window.location.href='create-listing.html'">
+                        <span class="material-symbols-outlined">add</span>
+                        <span>Create New Listing</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Overview (Bento Grid) -->
+            <section class="listings-stats">
+                    <div class="listings-stats__card">
+                        <span class="listings-stats__label">Total Listings</span>
+                        <h4 class="listings-stats__value" id="stat-total-listings">0</h4>
+                    </div>
+                    <div class="listings-stats__card">
+                        <span class="listings-stats__label">Active Potential Value</span>
+                        <h4 class="listings-stats__value" id="stat-active-value">$0</h4>
+                    </div>
+                    <div class="listings-stats__card listings-stats__card--emerald">
+                        <span class="listings-stats__label">Waste Redirected</span>
+                        <h4 class="listings-stats__value" id="stat-waste-redirected">1.4 Tons</h4>
+                    </div>
+                    <div class="listings-stats__card listings-stats__card--error">
+                        <span class="listings-stats__label">Expiring Soon</span>
+                        <h4 class="listings-stats__value" id="stat-expiring-soon">0</h4>
+                    </div>
+            </section>
+
+            <!-- Management Area -->
+            <section class="listings-manager">
+                
+                <!-- Toolbar: Tabs & Filters -->
+                <div class="listings-manager__toolbar">
+                    <div class="listings-tabs">
+                        <button class="listings-tabs__btn" data-status="">All</button>
+                        <button class="listings-tabs__btn" data-status="Active">Active</button>
+                        <button class="listings-tabs__btn" data-status="Reserved">Reserved</button>
+                        <button class="listings-tabs__btn" data-status="Inactive">Inactive</button>
+                        <button class="listings-tabs__btn" data-status="Expired">Expired</button>
+                    </div>
+                    
+                    <div class="listings-controls">
+                        <div class="listings-search">
+                            <span class="material-symbols-outlined">search</span>
+                            <input type="text" class="listings-search__input" placeholder="Search listings...">
+                        </div>
+                        <button class="btn-filter" id="filter-toggle-btn" type="button">
+                            <span class="material-symbols-outlined">tune</span>
+                            <span>Filter</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Inline Filter Panel — appears ABOVE the table, pushes it down -->
+                <div class="listings-filter-panel" id="filter-panel" hidden>
+                    <div class="listings-filter-panel__header">
+                        <h4>Filter Listings</h4>
+                        <button class="filter-panel__close" id="filter-close-btn" type="button" aria-label="Close">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+
+                    <div class="listings-filter-panel__grid">
+                        <div class="filter-field">
+                            <label>Category</label>
+                            <select id="filter-category" class="form-select form-select--small">
+                                <option value="">All categories</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-field">
+                            <label>Price min (JOD)</label>
+                            <input id="filter-price-min" type="number" min="0" step="0.01" placeholder="0" class="form-input form-input--small">
+                        </div>
+
+                        <div class="filter-field">
+                            <label>Price max (JOD)</label>
+                            <input id="filter-price-max" type="number" min="0" step="0.01" placeholder="∞" class="form-input form-input--small">
+                        </div>
+
+                        <div class="filter-field">
+                            <label>Expiring within</label>
+                            <select id="filter-expiry" class="form-select form-select--small">
+                                <option value="">Anytime</option>
+                                <option value="3">3 days</option>
+                                <option value="7">7 days</option>
+                                <option value="14">14 days</option>
+                                <option value="30">30 days</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-field">
+                            <label>Sort by</label>
+                            <select id="filter-ordering" class="form-select form-select--small">
+                                <option value="-created_at">Newest first</option>
+                                <option value="created_at">Oldest first</option>
+                                <option value="price">Price: Low → High</option>
+                                <option value="-price">Price: High → Low</option>
+                                <option value="expiry_date">Expiry soonest</option>
+                                <option value="-views_count">Most viewed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="listings-filter-panel__actions">
+                        <button id="filter-save-btn" type="button" class="btn-bulk" style="margin-right:auto;">
+                            <span class="material-symbols-outlined" style="font-size:1rem; vertical-align:middle;">bookmark_add</span>
+                            Save Search
+                        </button>
+                        <button id="filter-clear-btn" type="button" class="btn-bulk">Clear</button>
+                        <button id="filter-apply-btn" type="button" class="btn-primary">Apply Filters</button>
+                    </div>
+                </div>
+
+                <!-- Bulk Actions Bar -->
+                <div class="listings-bulk">
+                    <div class="listings-bulk__info">
+                        <input type="checkbox" id="select-all">
+                        <span class="listings-bulk__count">3 items selected</span>
+                    </div>
+                    <div class="listings-bulk__actions">
+                        <button class="btn-bulk" id="bulk-deactivate">Deactivate</button>
+                        <button class="btn-bulk btn-bulk--error" id="bulk-delete">Delete Selected</button>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="listings-table-container">
+                    <table class="listings-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Inventory</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Views</th>
+                                <th>Expiry</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listings-table-body">
+                            <!-- Rows are injected here by all-listings.js from the API -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Footer Pagination -->
+                <footer class="listings-pagination">
+                    <p class="listings-pagination__info">Showing <span>1-3</span> of 42 listings</p>
+                    <div class="listings-pagination__btns">
+                        <button class="btn-page" disabled>Previous</button>
+                        <button class="btn-page">Next</button>
+                    </div>
+                </footer>
+            </section>
+
+            <!-- Secondary Insight Section -->
+            <section class="listings-insights">
+                <div class="insight-card insight-card--primary">
+                    <div class="insight-card__icon insight-card__icon--emerald">
+                        <span class="material-symbols-outlined">insights</span>
+                    </div>
+                    <div class="insight-card__text">
+                        <h3>Pricing Optimizer</h3>
+                        <p>Your bell peppers are priced 12% higher than similar listings. Lowering by $5 could increase conversion by 40%.</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-card__icon insight-card__icon--grey">
+                        <span class="material-symbols-outlined">history_edu</span>
+                    </div>
+                    <div class="insight-card__text">
+                        <h3>Circular Impact Report</h3>
+                        <p>Download your monthly sustainability contribution certificate for tax credit eligibility.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- App Logic -->
+    <script src="listings-data.js"></script>
+    <script src="app.js?v=43"></script>
+    <script src="all-listings.js"></script>
+</body>
+</html>

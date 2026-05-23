@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Register your business with BackHouse — powering the circular economy through logistics and infrastructure." />
+  <title>BackHouse — Business Registration</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=2" />
+
+  <!-- Polished <select> styling so it matches the underlined text inputs -->
+  <style>
+    .form-input-row select.form-input {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: transparent;
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+      background-repeat: no-repeat;
+      background-position: right 0.1rem center;
+      padding-right: 1.8rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #111827;
+      border: none;
+      outline: none;
+      width: 100%;
+      line-height: 1.6;
+      transition: background-color 0.15s ease;
+    }
+    .form-input-row select.form-input:focus {
+      background-color: rgba(16, 185, 129, 0.04);
+    }
+    .form-input-row select.form-input:hover {
+      background-color: rgba(16, 185, 129, 0.03);
+    }
+    .form-input-row select.form-input option {
+      color: #111827;
+      background: #fff;
+      padding: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .form-input-row select.form-input option:disabled {
+      color: #9ca3af;
+    }
+    /* Make the Country read-only input look subtly muted */
+    .form-input-row input.form-input[readonly] {
+      color: #4b5563;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       TOP NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <header class="top-nav" role="banner">
+    <a href="index.html" class="top-nav__logo">BackHouse</a>
+
+    
+
+    <a href="login.html" class="top-nav__signin">Sign In</a>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT — SPLIT SCREEN
+  ═══════════════════════════════════════════ -->
+  <main class="registration-page">
+    <div class="split-layout">
+
+      <!-- LEFT: Brand Sidebar -->
+      <aside class="brand-sidebar">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOrLKm42LA8NysDGECh1lmO4UMexu0L6uBan9gOp-VL4_25gXxdTpjdZ1aZochzh309TQbZ8ejpPD6RcOzOZvzUffixHTe7VWJup_2Y-yKH-OsHbVPMKfjSGIs3_ryxBr_AC-BkhNRYCr4bSgoPvhz8T8zAS3q2rQAAu54UYEr92_AEGRi30vReAEkVyOklHMEkORciejxtNV3wWyuG10S-WC4KOSHGdcOZDgCIAj3x34NjHZUlUN5QIwpol5IB0XE_Uz_knE9xr1d"
+          alt="Modern high-end office interior with minimalist sustainable furniture"
+          class="brand-sidebar__image"
+          loading="lazy"
+        />
+        <div class="brand-sidebar__overlay">
+          <span class="brand-sidebar__tag">Join the Network</span>
+          <h1 class="brand-sidebar__heading">
+            Powering the<br />Circular Economy.
+          </h1>
+          <p class="brand-sidebar__description">
+            BackHouse provides the logistics and infrastructure to turn waste
+            into resource. Register your business to start participating today.
+          </p>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Registration Form -->
+      <section class="form-panel" aria-label="Business registration form">
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+          <div class="progress-indicator__header">
+            <div>
+              <span class="progress-indicator__step" id="step-label">Step 01 of 04</span>
+              <h2 class="progress-indicator__title" id="step-title">Business Information</h2>
+            </div>
+            <span class="progress-indicator__percent" id="step-percent">25%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar__fill" id="progress-fill" style="width: 25%;" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <!-- Registration Form -->
+        <form class="registration-form" id="registration-form" action="#" method="post" novalidate>
+
+          <!-- ════════ STEP 1 — Business Information ════════ -->
+          <div class="form-step" data-step="1">
+
+            <!-- Business Name -->
+            <div class="form-group">
+              <label class="form-label" for="business_name">Business Name</label>
+              <div class="form-input-row">
+                <span class="material-symbols-outlined form-icon">domain</span>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="business_name"
+                  name="business_name"
+                  placeholder="e.g. EcoSystems Logistics Ltd"
+                  autocomplete="organization"
+                  required
+                />
+              </div>
+              <p class="form-hint">The legal name of your entity as it appears on tax documents.</p>
+            </div>
+
+            <!-- Email & Phone — side by side on wider screens -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="email">Corporate Email</label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">mail</span>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="admin@business.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">Contact Phone</label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">call</span>
+                  <input
+                    class="form-input"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+962 (555) 000-0000"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label class="form-label" for="password">Secure Password</label>
+              <div class="form-input-row">
+                <span class="material-symbols-outlined form-icon">lock</span>
+                <input
+                  class="form-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="••••••••••••"
+                  autocomplete="new-password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Toggle password visibility"
+                  data-target="password"
+                >
+                  <span class="material-symbols-outlined">visibility</span>
+                </button>
+              </div>
+
+              <!-- Strength meter -->
+              <div id="pw-strength" style="margin-top:0.6rem;" hidden>
+                <div style="display:flex; gap:4px;">
+                  <div class="pw-bar" data-bar="1" style="flex:1; height:6px; border-radius:3px; background:#e5e7eb; transition:background 0.2s;"></div>
+                  <div class="pw-bar" data-bar="2" style="flex:1; height:6px; border-radius:3px; background:#e5e7eb; transition:background 0.2s;"></div>
+                  <div class="pw-bar" data-bar="3" style="flex:1; height:6px; border-radius:3px; background:#e5e7eb; transition:background 0.2s;"></div>
+                  <div class="pw-bar" data-bar="4" style="flex:1; height:6px; border-radius:3px; background:#e5e7eb; transition:background 0.2s;"></div>
+                  <div class="pw-bar" data-bar="5" style="flex:1; height:6px; border-radius:3px; background:#e5e7eb; transition:background 0.2s;"></div>
+                </div>
+                <div id="pw-label" style="margin-top:0.35rem; font-size:0.78rem; color:#6b7280; font-weight:600;">Password strength</div>
+
+                <ul id="pw-rules" style="list-style:none; padding:0.5rem 0 0 0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:0.2rem 0.75rem; font-size:0.78rem; color:#6b7280;">
+                  <li data-rule="len"><span class="pw-icon">○</span> At least 8 characters</li>
+                  <li data-rule="upper"><span class="pw-icon">○</span> Uppercase letter (A–Z)</li>
+                  <li data-rule="lower"><span class="pw-icon">○</span> Lowercase letter (a–z)</li>
+                  <li data-rule="digit"><span class="pw-icon">○</span> Number (0–9)</li>
+                  <li data-rule="special"><span class="pw-icon">○</span> Special char (! @ # $ …)</li>
+                  <li data-rule="nospace"><span class="pw-icon">○</span> No spaces</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ════════ STEP 2 — Business Address (Amman, Jordan) ════════ -->
+          <div class="form-step" data-step="2" hidden>
+
+            <div class="form-group">
+              <label class="form-label" for="street_address">Street Address &amp; Building</label>
+              <div class="form-input-row">
+                <span class="material-symbols-outlined form-icon">location_on</span>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="street_address"
+                  name="street_address"
+                  placeholder="e.g. Mecca Street, Building 22, Floor 3"
+                  autocomplete="street-address"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="city">District / Area</label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">apartment</span>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="city"
+                    name="city"
+                    list="amman-districts"
+                    placeholder="Type or pick your area in Amman"
+                    autocomplete="address-level2"
+                    required
+                  />
+                </div>
+                <datalist id="amman-districts">
+                  <option value="Abdali"></option>
+                  <option value="Abdoun"></option>
+                  <option value="Al-Bayader"></option>
+                  <option value="Al-Rabieh"></option>
+                  <option value="Al-Weibdeh"></option>
+                  <option value="Dabouq"></option>
+                  <option value="Deir Ghbar"></option>
+                  <option value="Jabal Amman"></option>
+                  <option value="Jabal Al-Hussein"></option>
+                  <option value="Jubeiha"></option>
+                  <option value="Khalda"></option>
+                  <option value="Marj Al-Hamam"></option>
+                  <option value="Marka"></option>
+                  <option value="Naour"></option>
+                  <option value="Sahab"></option>
+                  <option value="Shmeisani"></option>
+                  <option value="Sweifieh"></option>
+                  <option value="Tabarbour"></option>
+                  <option value="Tla' Al-Ali"></option>
+                  <option value="Um Uthaina"></option>
+                  <option value="Wadi Saqra"></option>
+                  <option value="Wadi Seer"></option>
+                </datalist>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="state">Governorate</label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">map</span>
+                  <select class="form-input" id="state" name="state" required>
+                    <option value="Amman" selected>Amman</option>
+                    <option>Irbid</option>
+                    <option>Zarqa</option>
+                    <option>Balqa</option>
+                    <option>Madaba</option>
+                    <option>Mafraq</option>
+                    <option>Jerash</option>
+                    <option>Ajloun</option>
+                    <option>Karak</option>
+                    <option>Tafilah</option>
+                    <option>Ma'an</option>
+                    <option>Aqaba</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="zip_code">Postal Code</label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">markunread_mailbox</span>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="zip_code"
+                    name="zip_code"
+                    placeholder="11183"
+                    pattern="\d{5}"
+                    inputmode="numeric"
+                    maxlength="5"
+                    autocomplete="postal-code"
+                    title="Jordanian postal codes are 5 digits (e.g. 11183)"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="country">Country</label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">public</span>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="country"
+                    name="country"
+                    value="Jordan"
+                    readonly
+                    autocomplete="country-name"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional: pinpoint location for distance/radius features -->
+            <div class="form-group" style="margin-top:0.5rem;">
+              <button type="button" id="detect-location-btn"
+                      style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(16,185,129,0.08); border:1px dashed #10b981; color:#059669; padding:0.55rem 0.85rem; border-radius:8px; font-size:0.85rem; font-weight:600; cursor:pointer;">
+                <span class="material-symbols-outlined" style="font-size:18px;">my_location</span>
+                Use my current GPS location (optional)
+              </button>
+              <p id="detect-location-status" style="font-size:0.75rem; color:#6b7280; margin:0.4rem 0 0 0; min-height:1rem;"></p>
+              <input type="hidden" id="latitude" name="latitude" />
+              <input type="hidden" id="longitude" name="longitude" />
+            </div>
+
+          </div>
+
+          <!-- ════════ STEP 3 — HORECA Operations ════════ -->
+          <div class="form-step" data-step="3" hidden>
+
+            <div class="form-group">
+              <label class="form-label" for="industry">Business Type</label>
+              <div class="form-input-row">
+                <span class="material-symbols-outlined form-icon">restaurant</span>
+                <select class="form-input" id="industry" name="industry" required>
+                  <option value="" disabled selected>Select your HORECA category</option>
+                  <option>Restaurant — Fine Dining</option>
+                  <option>Restaurant — Casual / Family</option>
+                  <option>Café / Coffee Shop</option>
+                  <option>Bakery &amp; Pastry</option>
+                  <option>Hotel — Boutique</option>
+                  <option>Hotel — 3★ / 4★</option>
+                  <option>Hotel — 5★ / Resort</option>
+                  <option>Catering Service</option>
+                  <option>Cloud / Dark Kitchen</option>
+                  <option>Fast Food / QSR</option>
+                  <option>Buffet / Banquet Hall</option>
+                  <option>Bar / Pub / Lounge</option>
+                  <option>Food Truck</option>
+                  <option>Institutional Kitchen (school / hospital / corporate)</option>
+                  <option>Grocery / Supermarket</option>
+                  <option>Wholesale Food Supplier</option>
+                  <option>Other HORECA</option>
+                </select>
+              </div>
+              <p class="form-hint">Tell us how your kitchen operates so we can match you with the right partners.</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cuisine">Cuisine / Specialty <span style="color:#9ca3af; font-weight:500;">(optional)</span></label>
+              <div class="form-input-row">
+                <span class="material-symbols-outlined form-icon">ramen_dining</span>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="cuisine"
+                  name="cuisine"
+                  list="cuisine-list"
+                  placeholder="e.g. Middle Eastern, Italian, Pastry"
+                  autocomplete="off"
+                />
+              </div>
+              <datalist id="cuisine-list">
+                <option value="Middle Eastern / Levantine"></option>
+                <option value="Arabic Grill / Mashawi"></option>
+                <option value="Mediterranean"></option>
+                <option value="Italian / Pizza &amp; Pasta"></option>
+                <option value="French / European"></option>
+                <option value="American / Burgers"></option>
+                <option value="Asian — Chinese"></option>
+                <option value="Asian — Japanese / Sushi"></option>
+                <option value="Asian — Thai"></option>
+                <option value="Indian"></option>
+                <option value="Mexican / Tex-Mex"></option>
+                <option value="Seafood"></option>
+                <option value="Vegan / Plant-based"></option>
+                <option value="Bakery &amp; Pastry"></option>
+                <option value="Coffee &amp; Specialty Drinks"></option>
+                <option value="Desserts &amp; Ice Cream"></option>
+                <option value="Healthy / Salad Bar"></option>
+                <option value="Multi-cuisine / International"></option>
+              </datalist>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="company_size">Operating Scale <span style="color:#9ca3af; font-weight:500;">(optional)</span></label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">chair_alt</span>
+                  <select class="form-input" id="company_size" name="company_size">
+                    <option value="" selected>Pick the band that best fits you</option>
+                    <optgroup label="Restaurants · Cafés · Catering (covers / day)">
+                      <option>Micro — under 20 covers / day</option>
+                      <option>Small — 20–80 covers / day</option>
+                      <option>Medium — 80–250 covers / day</option>
+                      <option>Large — 250–600 covers / day</option>
+                      <option>Enterprise — 600+ covers / day</option>
+                    </optgroup>
+                    <optgroup label="Hotels">
+                      <option>Boutique hotel (under 50 rooms)</option>
+                      <option>Mid-size hotel (50–200 rooms)</option>
+                      <option>Large hotel / Resort (200+ rooms)</option>
+                      <option>Hotel chain / Multi-outlet</option>
+                    </optgroup>
+                    <optgroup label="Grocery · Retail · Wholesale">
+                      <option>Single grocery / retail outlet</option>
+                      <option>Multi-branch grocery / retail</option>
+                      <option>Wholesale / Distribution</option>
+                    </optgroup>
+                    <option>Not applicable</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="staff_count">Kitchen Staff <span style="color:#9ca3af; font-weight:500;">(optional)</span></label>
+                <div class="form-input-row">
+                  <span class="material-symbols-outlined form-icon">groups</span>
+                  <input
+                    class="form-input"
+                    type="number"
+                    id="staff_count"
+                    name="staff_count"
+                    placeholder="e.g. 15"
+                    min="0"
+                    max="9999"
+                    inputmode="numeric"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="waste_volume">Est. Weekly Surplus / Inventory</label>
+              <div class="form-input-row">
+                <span class="material-symbols-outlined form-icon">inventory_2</span>
+                <select class="form-input" id="waste_volume" name="waste_volume" required>
+                  <option value="" disabled selected>How much surplus do you usually have?</option>
+                  <option>Under 20 kg / week</option>
+                  <option>20–50 kg / week</option>
+                  <option>50–150 kg / week</option>
+                  <option>150–400 kg / week</option>
+                  <option>400 kg – 1 tonne / week</option>
+                  <option>Over 1 tonne / week</option>
+                  <option>I'm here to buy, not sell</option>
+                </select>
+              </div>
+              <p class="form-hint">Helps us route the right buyers, logistics, and pickup windows to you.</p>
+            </div>
+
+          </div>
+
+          <!-- ════════ STEP 4 — Review & Submit ════════ -->
+          <div class="form-step" data-step="4" hidden>
+
+            <div class="review-summary" id="review-summary">
+              <!-- Filled dynamically by JS -->
+            </div>
+
+            <div class="form-checkbox-group">
+              <input
+                type="checkbox"
+                id="agree_terms"
+                name="agree_terms"
+                class="form-checkbox"
+                required
+              />
+              <label class="form-checkbox-label" for="agree_terms">
+                I confirm the above information is accurate and agree to BackHouse's
+                <a href="#" class="link">Terms of Service</a> and
+                <a href="#" class="link">Privacy Policy</a>.
+              </label>
+            </div>
+
+          </div>
+
+          <!-- ════════ Step Navigation Buttons ════════ -->
+          <div class="form-actions">
+            <p class="form-actions__login-prompt" id="step-login-prompt">
+              Already a member?
+              <a href="login.html" class="link">Sign In</a>
+            </p>
+
+            <div class="form-actions__buttons">
+              <button type="button" class="btn-secondary" id="prev-btn" hidden>
+                <span class="material-symbols-outlined btn-secondary__icon">arrow_back</span>
+                Back
+              </button>
+              <button type="button" class="btn-primary" id="next-btn">
+                Continue
+                <span class="material-symbols-outlined btn-primary__icon">arrow_forward</span>
+              </button>
+              <button type="button" class="btn-primary" id="submit-btn" hidden>
+                Submit Registration
+                <span class="material-symbols-outlined btn-primary__icon">check_circle</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Legal Notice -->
+        <div class="legal-notice">
+          <span class="material-symbols-outlined legal-notice__icon">info</span>
+          <p>
+            By continuing, you agree to BackHouse's
+            <a href="#" class="link">Terms of Service</a> and
+            <a href="#" class="link">Privacy Policy</a>.
+            All data is encrypted and handled according to circular economy
+            compliance standards.
+          </p>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <span class="site-footer__logo">BackHouse</span>
+
+
+    <small class="site-footer__copy">&copy; 2026 BackHouse Circular Economy. All rights reserved.</small>
+  </footer>
+
+  <script src="app.js?v=28"></script>
+  <script src="register.js?v=35"></script>
+</body>
+</html>

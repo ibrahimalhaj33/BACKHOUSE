@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Browse Listings | BackHouse</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Global Header Reused -->
+  <header class="top-nav" role="banner">
+    <a href="index.html" class="top-nav__brand">
+      <span class="top-nav__logo">BackHouse</span>
+      <span class="top-nav__subtitle">Circular Economy</span>
+    </a>
+
+    <nav class="top-nav__links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="browse.html" class="top-nav__link--active">Browse Listings</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="top-nav__actions">
+      <a href="login.html" class="top-nav__login">Login</a>
+      <a href="register.html" class="btn-primary btn-primary--sm">Sign Up</a>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- Hero Search Section -->
+    <section class="browse-hero">
+      <h1 class="browse-hero__title">Explore the Circular Exchange</h1>
+      <p class="browse-hero__subtitle">Access high-quality surplus inventory from Amman's top suppliers. Sustainable sourcing at hospitality-grade standards.</p>
+      
+      <!-- Bento Search & Filter -->
+      <div class="browse-search">
+        <div class="browse-search__field browse-search__field--location">
+          <label class="browse-search__label">Location</label>
+          <div class="browse-search__input-wrapper">
+            <span class="material-symbols-outlined browse-search__icon">location_on</span>
+            <select class="browse-search__input">
+              <option>Amman, Jordan</option>
+              <option>Irbid, Jordan</option>
+              <option>Aqaba, Jordan</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="browse-search__field browse-search__field--query">
+          <label class="browse-search__label">Search Products</label>
+          <div class="browse-search__input-wrapper">
+            <span class="material-symbols-outlined browse-search__icon">search</span>
+            <input class="browse-search__input" placeholder="Organic grains, packaging..." type="text" />
+          </div>
+        </div>
+        
+        <div class="browse-search__action">
+          <button class="btn-primary browse-search__btn">
+            <span class="material-symbols-outlined">filter_list</span>
+            Find Listings
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters Strip -->
+    <section class="browse-filters">
+      <div class="browse-filters__categories">
+        <span class="browse-filters__label">Filter By Category:</span>
+        <button class="browse-filters__chip">Fresh Produce</button>
+        <button class="browse-filters__chip">Dairy & Eggs</button>
+        <button class="browse-filters__chip">Bakery & Pastry</button>
+        <button class="browse-filters__chip">Dry Goods & Pantry</button>
+        <button class="browse-filters__chip">Beverages</button>
+        <button class="browse-filters__chip">Packaging & Disposables</button>
+        <button class="browse-filters__chip">Kitchen Equipment</button>
+      </div>
+      
+      <div class="browse-filters__divider"></div>
+      
+      <div class="browse-filters__price">
+        <span class="browse-filters__label">Price Range:</span>
+        <input class="browse-filters__slider" type="range" />
+        <span class="browse-filters__price-val">JOD 500+</span>
+      </div>
+    </section>
+
+    <!-- Listings Grid (JS-populated from /api/listings/) -->
+    <section class="browse-grid">
+    </section>
+
+    <!-- (Original static sample cards removed) -->
+    <section hidden>
+
+      <!-- Card 1 -->
+      <article class="browse-card">
+        <div class="browse-card__blurred-content">
+          <div class="browse-card__image-wrapper">
+            <img class="browse-card__image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAntemxRKYlqFQcaP_rkV1M2_6x_ODd2iivgB_aMjodiTKLMW_euaAZN5B_X1JPtZCF6sb3Jlr_5NLa_Q0rfqCDX-EERwx8aIxmOxlqc0ZOFHjBsIe33aklo9eh_g-jXotpamqJaEmNXZMnnc9PDr-G5zfHKabvtRK2Yy_8TNjvpxIGCQ2BjYIEWM5qSnPqfS3RTy7g4AeTEX1B3Tk4hAExNrq4t6LYw0sva5Im2FzXr9VXrHe4_HghlyV_KM1Hz1TbAeWi4fl50KQx" alt="close-up of organic bulk grains" />
+            <div class="browse-card__gradient"></div>
+            <span class="browse-card__badge">Surplus Alert</span>
+          </div>
+          <div class="browse-card__details">
+            <div class="browse-card__header">
+              <div>
+                <span class="browse-card__category">Dry Goods</span>
+                <h3 class="browse-card__title">Organic Durum Wheat</h3>
+              </div>
+              <div class="browse-card__price-box">
+                <span class="browse-card__price-label">Starting From</span>
+                <span class="browse-card__price-val">JOD 420.00</span>
+              </div>
+            </div>
+            <p class="browse-card__location">
+              <span class="material-symbols-outlined">location_on</span>
+              Location: Amman (Area Blurred)
+            </p>
+          </div>
+        </div>
+        <div class="browse-card__overlay">
+          <div class="browse-card__overlay-box">
+            <p class="browse-card__overlay-text">Sign up to view full details</p>
+            <a href="register.html" class="btn-primary browse-card__overlay-btn">Register to Contact Seller</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="browse-card">
+        <div class="browse-card__blurred-content">
+          <div class="browse-card__image-wrapper">
+            <img class="browse-card__image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACFOtVeQGzhETKGgyBcQQu-Q_kgv31Yhc3ynhvPzYNkS6YVdmmZCbaFJmWRhd29iCEKz7nBYlAKp53FsUM41KnQkMXb9MHkii1CFLMSNqqCDYJxQ2LsfvJnGfauYOuREonzl276KFmYyR5J4rBNPDMqUZ1HSlST4sqXzp_DexinqItMn59ksvIYk8tCPytAY35hJrHL6KJQskeqqiw1dWdEGhUv3yQ81xvP7QsfJJ6dMQRtaFBkAGuzPcaXq9r0LuW2RUTVmdQedzK" alt="stacks of eco-friendly cardboard" />
+            <div class="browse-card__gradient"></div>
+          </div>
+          <div class="browse-card__details">
+            <div class="browse-card__header">
+              <div>
+                <span class="browse-card__category">Packaging</span>
+                <h3 class="browse-card__title">Biodegradable Cartons</h3>
+              </div>
+              <div class="browse-card__price-box">
+                <span class="browse-card__price-label">Starting From</span>
+                <span class="browse-card__price-val">JOD 1,150.00</span>
+              </div>
+            </div>
+            <p class="browse-card__location">
+              <span class="material-symbols-outlined">location_on</span>
+              Location: Amman (Area Blurred)
+            </p>
+          </div>
+        </div>
+        <div class="browse-card__overlay">
+          <div class="browse-card__overlay-box">
+            <p class="browse-card__overlay-text">Sign up to view full details</p>
+            <a href="register.html" class="btn-primary browse-card__overlay-btn">Register to Contact Seller</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="browse-card">
+        <div class="browse-card__blurred-content">
+          <div class="browse-card__image-wrapper">
+            <img class="browse-card__image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADDb0AnCBrbr4YrCHKOJz-8Zeezlio1hEsqdvp-mi9qM6h5Ye4Q8UaQ-wCYIiytWN2PbLI9Xkp6u-vCPLow6vuv4SoepHwOKBAcAETBnGtAMdANC0Il3L6oor8f9_Np8mj81dpdkJuhDHC2pWYS_G8GV7uqkF_DHq2hPcPf30a3gQcM4XGBIh_XcZpOU5NWCaynk37QynKT73sBI_7XlOCREPqgb65gOurXrZGm_vfw-eG5DtuOl9sl6vT0KxcM9dNL-kfteKaDHnU" alt="canned tomatoes" />
+            <div class="browse-card__gradient"></div>
+            <span class="browse-card__badge">Stock Warning</span>
+          </div>
+          <div class="browse-card__details">
+            <div class="browse-card__header">
+              <div>
+                <span class="browse-card__category">Canned</span>
+                <h3 class="browse-card__title">Premium Tomato Puree</h3>
+              </div>
+              <div class="browse-card__price-box">
+                <span class="browse-card__price-label">Starting From</span>
+                <span class="browse-card__price-val">JOD 85.00</span>
+              </div>
+            </div>
+            <p class="browse-card__location">
+              <span class="material-symbols-outlined">location_on</span>
+              Location: Amman (Area Blurred)
+            </p>
+          </div>
+        </div>
+        <div class="browse-card__overlay">
+          <div class="browse-card__overlay-box">
+            <p class="browse-card__overlay-text">Sign up to view full details</p>
+            <a href="register.html" class="btn-primary browse-card__overlay-btn">Register to Contact Seller</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="browse-card">
+        <div class="browse-card__blurred-content">
+          <div class="browse-card__image-wrapper">
+            <img class="browse-card__image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNDBmx6Om76N25vGNPGeqDunlgvnrHFCqY_Oj7dG4hNTHmOXOwHbHr1i4J5e-n6vjTuTh801QT2scieV3FU3muJxr_ZyWEI5doWCa2Mb9Q6MrRadiesMdUUmYP8JMqhHv_NqX2OXdAbFWGkzVTAEUI_454T9979Rsst-V9pPNPJRC-G6NOlXPw20epsZEqLAgS9aO41d8ZYECu9XE5F_U6UzgGc1YJ4ocTNy_Xu_6QX0ieTTWAPvjcZ7Goxl80YYeXLptPeuZ_ULjV" alt="recycled glass bottles" />
+            <div class="browse-card__gradient"></div>
+          </div>
+          <div class="browse-card__details">
+            <div class="browse-card__header">
+              <div>
+                <span class="browse-card__category">Packaging</span>
+                <h3 class="browse-card__title">Glass Beverage Bottles</h3>
+              </div>
+              <div class="browse-card__price-box">
+                <span class="browse-card__price-label">Starting From</span>
+                <span class="browse-card__price-val">JOD 2,100.00</span>
+              </div>
+            </div>
+            <p class="browse-card__location">
+              <span class="material-symbols-outlined">location_on</span>
+              Location: Irbid (Area Blurred)
+            </p>
+          </div>
+        </div>
+        <div class="browse-card__overlay">
+          <div class="browse-card__overlay-box">
+            <p class="browse-card__overlay-text">Sign up to view full details</p>
+            <a href="register.html" class="btn-primary browse-card__overlay-btn">Register to Contact Seller</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="browse-card">
+        <div class="browse-card__blurred-content">
+          <div class="browse-card__image-wrapper">
+            <img class="browse-card__image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFeaV9D9Xv9GQgw-c6Dfp_MHLxdx2OM2LsUO9RXgRQBrd7BrgmEA9OSOH48MfeCygY1jX9PEjcZHwTbKmttP0_y7AZBsxlFF-wau15GaZcXp-tM5NQBj6rXirhh-sO6UKy4Prhm91gpP2Hg5Y4vnDZ1hws_hkz90-6MCS9l7y_7Nt2ITlPFTWDEnL-tPR_yqV2iEAftSjbNlGoSb5uaLZKu18WJc6KruVUeD5BcKgQvYn6crM_nJCLl4Zt9EcAwkSP6VdaevUbgDME" alt="pasta shapes in glass jars" />
+            <div class="browse-card__gradient"></div>
+          </div>
+          <div class="browse-card__details">
+            <div class="browse-card__header">
+              <div>
+                <span class="browse-card__category">Dry Goods</span>
+                <h3 class="browse-card__title">Assorted Pasta Stock</h3>
+              </div>
+              <div class="browse-card__price-box">
+                <span class="browse-card__price-label">Starting From</span>
+                <span class="browse-card__price-val">JOD 640.00</span>
+              </div>
+            </div>
+            <p class="browse-card__location">
+              <span class="material-symbols-outlined">location_on</span>
+              Location: Amman (Area Blurred)
+            </p>
+          </div>
+        </div>
+        <div class="browse-card__overlay">
+          <div class="browse-card__overlay-box">
+            <p class="browse-card__overlay-text">Sign up to view full details</p>
+            <a href="register.html" class="btn-primary browse-card__overlay-btn">Register to Contact Seller</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="browse-card">
+        <div class="browse-card__blurred-content">
+          <div class="browse-card__image-wrapper">
+            <img class="browse-card__image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJCTYYRX__UBHSEnubNe7AmNP1jb0voewbs1b0AhWClTtdbYonbnzujoEfx8trJ3Py3eajD5fg7MUw_7UDJXTl_gypKmq9CLZ1ry1eOP_9hNUBeJPX0xdz8HusJAURhKF9XxLInKUHqi2uuWCsHt0jtrZodlV2fIuCLqugjiKqhYdmXYxY9eWNOfh828r3fhj4_DCyxXbsYKVB0v5qarDq0cFzfqk8_FgP4TUegMUiAHPJlNSSugAPVVV7znq0BsYYZ6FVWCg6Rkad" alt="lentils and spices" />
+            <div class="browse-card__gradient"></div>
+          </div>
+          <div class="browse-card__details">
+            <div class="browse-card__header">
+              <div>
+                <span class="browse-card__category">Dry Goods</span>
+                <h3 class="browse-card__title">Red Lentils (Bulks)</h3>
+              </div>
+              <div class="browse-card__price-box">
+                <span class="browse-card__price-label">Starting From</span>
+                <span class="browse-card__price-val">JOD 310.00</span>
+              </div>
+            </div>
+            <p class="browse-card__location">
+              <span class="material-symbols-outlined">location_on</span>
+              Location: Aqaba (Area Blurred)
+            </p>
+          </div>
+        </div>
+        <div class="browse-card__overlay">
+          <div class="browse-card__overlay-box">
+            <p class="browse-card__overlay-text">Sign up to view full details</p>
+            <a href="register.html" class="btn-primary browse-card__overlay-btn">Register to Contact Seller</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    
+
+
+  </main>
+
+  <!-- Global Footer Reused -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__container">
+      <div class="site-footer__brand">
+        <span class="material-symbols-outlined site-footer__logo-icon">eco</span>
+        <span class="site-footer__logo-text">BackHouse</span>
+        <p class="site-footer__copyright">&copy; 2026 BackHouse Marketplace. Circularity by Design.</p>
+      </div>
+
+
+    </div>
+  </footer>
+
+  <script src="listings-data.js?v=36"></script>
+  <script src="app.js?v=36"></script>
+  <script src="browse.js?v=36"></script>
+</body>
+</html>

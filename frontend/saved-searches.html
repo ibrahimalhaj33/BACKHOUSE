@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Searches | BackHouse</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <!-- Content injected by app.js -->
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 80%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 90%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+
+        <!-- Top Header Area -->
+        <header class="dashboard-header" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);">
+            <div class="dashboard-header__left">
+                <h2 class="dashboard-header__title">Saved Searches</h2>
+            </div>
+            <div class="dashboard-header__actions">
+                <button class="dashboard-header__btn" aria-label="Notifications">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button class="dashboard-header__btn" aria-label="Profile">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Canvas -->
+        <main class="dashboard-main dashboard-main--full">
+            <div class="registry-content">
+                
+                <!-- Registry Header Section -->
+                <div class="registry-header-flex">
+                    <header class="registry-hero">
+                        <div class="registry-hero__left">
+                            <div class="registry-badge">
+                                <span class="registry-badge__dot"></span>
+                                RESOURCE DISCOVERY
+                            </div>
+                            <h1 class="registry-title">Saved Searches</h1>
+                            <p class="registry-description">
+                                Automate your sourcing strategy. We track market movements and circular opportunities based on your specific operational requirements.
+                            </p>
+                        </div>
+                        <div class="registry-hero__right">
+                            <button class="registry-cta" id="btn-create-saved-search" type="button">
+                                <span class="material-symbols-outlined">add_circle</span>
+                                Create New Saved Search
+                            </button>
+                        </div>
+                    </header>
+                </div>
+
+                <!-- Registry Grid -->
+                <div class="registry-grid" id="saved-searches-container">
+                    <!-- JS-populated from /api/searches/ -->
+                </div>
+
+                <!-- (Original static sample cards removed — kept hidden for reference) -->
+                <div hidden>
+                    <!-- Search Card 01 -->
+                    <article class="registry-card" data-search-id="search-bakery-01">
+                        <div class="registry-card__indicator registry-card__indicator--amber"></div>
+                        <div class="registry-card__body">
+                            <div class="registry-card__main">
+                                <div class="registry-card__header-row">
+                                    <div class="registry-card__title-group">
+                                        <h3 class="registry-card__title">Bakery Supplies within 5km</h3>
+                                        <div class="status-chip status-chip--amber">
+                                            <span class="material-symbols-outlined">bolt</span>
+                                            12 NEW
+                                        </div>
+                                    </div>
+                                    <div class="registry-card__alert-box">
+                                        <span class="registry-card__alert-label">ALERTS</span>
+                                        <div class="registry-switch registry-switch--active js-alert-toggle"></div>
+                                    </div>
+                                </div>
+                                <p class="registry-card__meta">Last run: 45 minutes ago</p>
+                                
+                                <div class="registry-card__tags">
+                                    <span class="registry-tag"><span class="material-symbols-outlined">bakery_dining</span> Flour, Sugar</span>
+                                    <span class="registry-tag"><span class="material-symbols-outlined">distance</span> &lt; 5.0 km</span>
+                                    <span class="registry-tag"><span class="material-symbols-outlined">inventory</span> Bulk Only</span>
+                                    <span class="registry-tag"><span class="material-symbols-outlined">schedule</span> Pickup</span>
+                                </div>
+                            </div>
+
+                            <div class="registry-card__divider"></div>
+
+                            <div class="registry-card__actions">
+                                <button class="registry-card__icon-btn js-delete-search" aria-label="Delete"><span class="material-symbols-outlined">delete</span></button>
+                                <button class="registry-card__icon-btn js-edit-search" aria-label="Edit"><span class="material-symbols-outlined">edit</span></button>
+                                <button class="registry-card__run-btn js-run-search">
+                                    Run Search
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Search Card 02 -->
+                    <article class="registry-card" data-search-id="search-glass-02">
+                        <div class="registry-card__indicator registry-card__indicator--gray"></div>
+                        <div class="registry-card__body">
+                            <div class="registry-card__main">
+                                <div class="registry-card__header-row">
+                                    <div class="registry-card__title-group">
+                                        <h3 class="registry-card__title">Clear Glass Cullet - Grade A</h3>
+                                        <div class="status-chip">0 NEW</div>
+                                    </div>
+                                    <div class="registry-card__alert-box">
+                                        <span class="registry-card__alert-label">ALERTS</span>
+                                        <div class="registry-switch js-alert-toggle"></div>
+                                    </div>
+                                </div>
+                                <p class="registry-card__meta">Last run: Yesterday at 18:30</p>
+                                
+                                <div class="registry-card__tags">
+                                    <span class="registry-tag"><span class="material-symbols-outlined">recycling</span> Post-Industrial</span>
+                                    <span class="registry-tag"><span class="material-symbols-outlined">location_on</span> City-Wide</span>
+                                    <span class="registry-tag"><span class="material-symbols-outlined">scale</span> &gt; 500kg</span>
+                                </div>
+                            </div>
+
+                            <div class="registry-card__divider"></div>
+
+                            <div class="registry-card__actions">
+                                <button class="registry-card__icon-btn js-delete-search" aria-label="Delete"><span class="material-symbols-outlined">delete</span></button>
+                                <button class="registry-card__icon-btn js-edit-search" aria-label="Edit"><span class="material-symbols-outlined">edit</span></button>
+                                <button class="registry-card__run-btn js-run-search">
+                                    Run Search
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Search Card 03 -->
+                    <article class="registry-card" data-search-id="search-cotton-03">
+                        <div class="registry-card__indicator registry-card__indicator--amber"></div>
+                        <div class="registry-card__body">
+                            <div class="registry-card__main">
+                                <div class="registry-card__header-row">
+                                    <div class="registry-card__title-group">
+                                        <h3 class="registry-card__title">Cotton/Linen Offcuts</h3>
+                                        <div class="status-chip status-chip--amber">
+                                            <span class="material-symbols-outlined">priority_high</span>
+                                            3 NEW
+                                        </div>
+                                    </div>
+                                    <div class="registry-card__alert-box">
+                                        <span class="registry-card__alert-label">ALERTS</span>
+                                        <div class="registry-switch registry-switch--active js-alert-toggle"></div>
+                                    </div>
+                                </div>
+                                <p class="registry-card__meta">Last run: 2 hours ago</p>
+                                
+                                <div class="registry-card__tags">
+                                    <span class="registry-tag"><span class="material-symbols-outlined">texture</span> Natural Fibers</span>
+                                    <span class="registry-tag"><span class="material-symbols-outlined">palette</span> Un-dyed</span>
+                                </div>
+                            </div>
+
+                            <div class="registry-card__divider"></div>
+
+                            <div class="registry-card__actions">
+                                <button class="registry-card__icon-btn js-delete-search" aria-label="Delete"><span class="material-symbols-outlined">delete</span></button>
+                                <button class="registry-card__icon-btn js-edit-search" aria-label="Edit"><span class="material-symbols-outlined">edit</span></button>
+                                <button class="registry-card__run-btn js-run-search">
+                                    Run Search
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Bento Tips Footer -->
+                <div class="registry-tips">
+                    <div class="registry-tip-item">
+                        <div class="registry-tip-icon"><span class="material-symbols-outlined">notifications_active</span></div>
+                        <h4>Instant Alerts</h4>
+                        <p>Toggle alerts to receive push notifications the moment a matching resource enters the Marketplace.</p>
+                    </div>
+                    <div class="registry-tip-item">
+                        <div class="registry-tip-icon"><span class="material-symbols-outlined">dynamic_feed</span></div>
+                        <h4>Dynamic Filtering</h4>
+                        <p>Your saved searches automatically include new tags as our material classification system evolves.</p>
+                    </div>
+                    <div class="registry-tip-item">
+                        <div class="registry-tip-icon"><span class="material-symbols-outlined">analytics</span></div>
+                        <h4>Supply Insights</h4>
+                        <p>View historical price trends for your saved searches by clicking the 'Edit' button.</p>
+                    </div>
+                </div>
+
+                <footer class="registry-page-footer">
+                    <p>© 2026 BackHouse Circular Economies. All search parameters are private and encrypted.</p>
+                    
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    
+
+    <script src="listings-data.js?v=25"></script>
+    <script src="app.js?v=43"></script>
+    <script src="saved-searches.js?v=25"></script>
+</body>
+</html>

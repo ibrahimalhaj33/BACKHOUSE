@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | BackHouse</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="messages.css">
+    <style>
+        .chat-menu {
+            position: absolute;
+            top: calc(100% + 0.25rem);
+            right: 0;
+            min-width: 220px;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            padding: 0.35rem;
+            z-index: 5000;
+            isolation: isolate;
+            animation: chatMenuPop 0.12s ease-out;
+        }
+        @keyframes chatMenuPop {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .chat-menu[hidden] { display: none !important; }
+        .chat-menu__item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.55rem 0.75rem;
+            border-radius: 6px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: #1a1a1a;
+            text-align: left;
+            font-family: inherit;
+        }
+        .chat-menu__item:hover { background: #f3f4f6; }
+        .chat-menu__item .material-symbols-outlined { font-size: 1.125rem; color: #555; }
+        .chat-menu__item--danger { color: #b91c1c; }
+        .chat-menu__item--danger:hover { background: rgba(239,68,68,0.08); }
+        .chat-menu__item--danger .material-symbols-outlined { color: #b91c1c; }
+
+        /* ─── Chat tool popups (plus, emoji, image) ─── */
+        .chat-tool-wrap { position: relative; display: inline-block; }
+        .chat-popup {
+            position: absolute;
+            bottom: calc(100% + 0.5rem);
+            left: 0;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 0.5rem;
+            z-index: 5000;
+            animation: chatMenuPop 0.12s ease-out;
+        }
+        .chat-popup[hidden] { display: none !important; }
+        .chat-popup--templates { min-width: 280px; }
+        .chat-popup--templates button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            border-radius: 6px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            font-family: inherit;
+        }
+        .chat-popup--templates button:hover { background: #f3f4f6; }
+        .chat-popup--emoji {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 0.15rem;
+            max-width: 320px;
+        }
+        .chat-popup--emoji button {
+            font-size: 1.25rem;
+            padding: 0.35rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 6px;
+            line-height: 1;
+        }
+        .chat-popup--emoji button:hover { background: #f3f4f6; }
+        .message__bubble img {
+            max-width: 100%;
+            max-height: 240px;
+            border-radius: 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation (Dynamically Loaded) -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 80%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="dashboard-main-container">
+            <!-- Header (Exact copy pattern from my-purchases.html) -->
+            <header class="dashboard-header">
+                <div class="dashboard-header__left">
+                    <h2 class="dashboard-header__title">Messages</h2>
+                    <div class="dashboard-header__divider"></div>
+                    <div class="dashboard-header__date">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">chevron_right</span>
+                        <span>Inbox</span>
+                    </div>
+                </div>
+                <div class="dashboard-header__actions">
+                    <div class="messages-search">
+                        <span class="material-symbols-outlined messages-search__icon">search</span>
+                        <input type="text" class="messages-search__input" placeholder="Search conversations...">
+                    </div>
+                    <button class="dashboard-header__btn" aria-label="Notifications">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="dashboard-header__dot"></span>
+                    </button>
+                    <button class="dashboard-header__btn" aria-label="Profile">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Messages Wrapper (Full bleed inside dashboard) -->
+            <main class="messages-wrapper">
+                
+                <!-- Left Panel: Chat List -->
+                <aside class="chat-sidebar">
+                    <ul class="chat-list">
+                        <!-- Dynamically populated by messages.js -->
+                    </ul>
+                </aside>
+
+                <!-- Right Panel: Chat Window -->
+                <section class="chat-window">
+                    <!-- Chat Header -->
+                    <div class="chat-window__header">
+                        <!-- Dynamically populated by messages.js -->
+                    </div>
+
+                    <!-- Chat Feed -->
+                    <div class="chat-window__feed">
+                        <!-- Dynamically populated by messages.js -->
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="chat-window__input-area">
+                        <div class="chat-input-box">
+                            <textarea class="chat-input-box__field" placeholder="Type your message..."></textarea>
+                            <div class="chat-input-box__actions">
+                                <div class="chat-input-box__tools">
+                                    <div class="chat-tool-wrap">
+                                        <button class="tool-btn" id="tool-templates" aria-label="Quick replies">
+                                            <span class="material-symbols-outlined">add_circle</span>
+                                        </button>
+                                        <div class="chat-popup chat-popup--templates" id="popup-templates" hidden></div>
+                                    </div>
+                                    <div class="chat-tool-wrap">
+                                        <button class="tool-btn" id="tool-emoji" aria-label="Emoji">
+                                            <span class="material-symbols-outlined">sentiment_satisfied</span>
+                                        </button>
+                                        <div class="chat-popup chat-popup--emoji" id="popup-emoji" hidden></div>
+                                    </div>
+                                    <button class="tool-btn" id="tool-image" aria-label="Attach image">
+                                        <span class="material-symbols-outlined">image</span>
+                                    </button>
+                                    <input type="file" id="image-file-input" accept="image/*" hidden>
+                                </div>
+                                <button class="btn-send">
+                                    Send
+                                    <span class="material-symbols-outlined" style="font-size: 1.125rem;">send</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chat-input-hint">Press Shift + Enter for new line</div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="listings-data.js?v=23"></script>
+    <script src="messaging-data.js?v=23"></script>
+    <script src="app.js?v=43"></script>
+    <script src="messages.js?v=23"></script>
+</body>
+</html>

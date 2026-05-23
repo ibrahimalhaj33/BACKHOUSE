@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | BackHouse</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <!-- Content injected by app.js -->
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 80%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 90%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+
+        <!-- Top Header Area -->
+        <header class="dashboard-header">
+            <div class="dashboard-header__left">
+                <h2 class="dashboard-header__title">Dashboard</h2>
+                <div class="dashboard-header__divider"></div>
+                <!-- Localized Date -->
+                <div class="dashboard-header__date">
+                    <span class="material-symbols-outlined" style="font-size: 1rem;">calendar_today</span>
+                    <span id="global-date">Sunday, Oct 24</span>
+                </div>
+            </div>
+            <div class="dashboard-header__actions">
+                <button class="dashboard-header__btn" aria-label="Notifications">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="dashboard-header__dot"></span>
+                </button>
+                <button class="dashboard-header__btn" aria-label="Profile">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Content -->
+        <main class="dashboard-main">
+            
+            <!-- Hero Stats Bento Grid -->
+            <section class="dashboard-stats-grid">
+                <!-- Stat Card 1 -->
+                <div class="dashboard-stat-card">
+                    <div class="dashboard-stat-header">
+                        <div class="dashboard-stat-icon-box">
+                            <span class="material-symbols-outlined">inventory_2</span>
+                        </div>
+                        <span class="dashboard-stat-trend dashboard-stat-trend--up">
+                            <span class="material-symbols-outlined" style="font-size: 1rem;">inventory_2</span> Live
+                        </span>
+                    </div>
+                    <div>
+                        <p class="dashboard-stat-label">Active Listings</p>
+                        <h3 class="dashboard-stat-value" id="stat-active-listings">42</h3>
+                    </div>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="dashboard-stat-card">
+                    <div class="dashboard-stat-header">
+                        <div class="dashboard-stat-icon-box">
+                            <span class="material-symbols-outlined">pending_actions</span>
+                        </div>
+                        <span class="dashboard-stat-trend dashboard-stat-trend--neutral" id="trend-pending">
+                            <span class="material-symbols-outlined" style="font-size: 1rem;">hourglass_top</span> Awaiting
+                        </span>
+                    </div>
+                    <div>
+                        <p class="dashboard-stat-label">Pending Trans.</p>
+                        <h3 class="dashboard-stat-value" id="stat-pending-transactions">08</h3>
+                    </div>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="dashboard-stat-card">
+                    <div class="dashboard-stat-header">
+                        <div class="dashboard-stat-icon-box">
+                            <span class="material-symbols-outlined">forum</span>
+                        </div>
+                        <span class="dashboard-stat-trend dashboard-stat-trend--error" id="trend-messages">
+                            <span class="material-symbols-outlined" style="font-size: 1rem;">mark_email_unread</span> New
+                        </span>
+                    </div>
+                    <div>
+                        <p class="dashboard-stat-label">Unread Messages</p>
+                        <h3 class="dashboard-stat-value" id="stat-unread-messages">03</h3>
+                    </div>
+                </div>
+
+                <!-- Stat Card 4 (Revenue - localized currency) -->
+                <div class="dashboard-stat-card dashboard-stat-card--primary">
+                    <span class="material-symbols-outlined dashboard-stat-card__icon" style="font-variation-settings: 'FILL' 1;">payments</span>
+                    <div class="dashboard-stat-header">
+                        <div class="dashboard-stat-icon-box dashboard-stat-icon-box--primary">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <span class="dashboard-stat-trend dashboard-stat-trend--light">Month View</span>
+                    </div>
+                    <div>
+                        <p class="dashboard-stat-label">Total Revenue</p>
+                        <h3 class="dashboard-stat-value" id="stat-total-revenue">JD 12,450.00</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Multi Grid Layout -->
+            <div class="dashboard-multi-grid">
+                
+                <!-- Left Column (Main Feed & Actions) -->
+                <div class="dashboard-widget-group">
+                    
+                    <!-- Quick Actions -->
+                    <section>
+                        <h4 class="dashboard-section-title">Quick Actions</h4>
+                        <div class="dashboard-quick-actions">
+                            <button class="dashboard-action-btn dashboard-action-btn--primary" onclick="window.location.href='create-listing.html'">
+                                <div class="dashboard-action-btn__left">
+                                    <span class="material-symbols-outlined dashboard-action-btn__icon" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                                    <div style="text-align: left;">
+                                        <p class="dashboard-action-btn__title">Create New Listing</p>
+                                        <p class="dashboard-action-btn__sub">List your assets for reuse</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined dashboard-action-btn__icon">arrow_forward</span>
+                            </button>
+
+                            <button class="dashboard-action-btn dashboard-action-btn--secondary" onclick="window.location.href='browse-dash.html'">
+                                <div class="dashboard-action-btn__left">
+                                    <span class="material-symbols-outlined dashboard-action-btn__icon">search</span>
+                                    <div style="text-align: left;">
+                                        <p class="dashboard-action-btn__title">Browse Marketplace</p>
+                                        <p class="dashboard-action-btn__sub">Find circular materials</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined dashboard-action-btn__icon">arrow_forward</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Recent Activity -->
+                    <section class="dashboard-panel">
+                        <div class="dashboard-panel-header">
+                            <h4 class="dashboard-panel-title">Recent Activity</h4>
+                            <a href="all-listings.html" class="dashboard-panel-link">View All</a>
+                        </div>
+                        <div class="dashboard-activity-list">
+                            <!-- JS-populated from /api/orders/sales/ + /api/ratings/ -->
+                        </div>
+
+                        <!-- (Original static activity items removed) -->
+                        <div hidden>
+
+                            <!-- Activity Item -->
+                            <div class="dashboard-activity-item">
+                                <div class="dashboard-activity-icon">
+                                    <span class="material-symbols-outlined">sync_alt</span>
+                                </div>
+                                <div class="dashboard-activity-content">
+                                    <div class="dashboard-activity-header">
+                                        <h5 class="dashboard-activity-title">Listing Sold: Industrial Oven Series 300</h5>
+                                        <span class="dashboard-activity-time">14:20 PM</span>
+                                    </div>
+                                    <p class="dashboard-activity-desc">Sold to <strong>Amman Innovation Hub Kitchen</strong> for JD 4,200.00</p>
+                                    <span class="dashboard-badge dashboard-badge--success">SALE COMPLETED</span>
+                                </div>
+                            </div>
+
+                            <!-- Activity Item -->
+                            <div class="dashboard-activity-item">
+                                <div class="dashboard-activity-icon">
+                                    <span class="material-symbols-outlined">star</span>
+                                </div>
+                                <div class="dashboard-activity-content">
+                                    <div class="dashboard-activity-header">
+                                        <h5 class="dashboard-activity-title">New Review Received</h5>
+                                        <span class="dashboard-activity-time">Yesterday</span>
+                                    </div>
+                                    <p class="dashboard-activity-desc">"Great seller, the equipment was exactly as described. Fast shipping."</p>
+                                    <div class="dashboard-activity-rating">
+                                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Activity Item -->
+                            <div class="dashboard-activity-item">
+                                <div class="dashboard-activity-icon">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </div>
+                                <div class="dashboard-activity-content">
+                                    <div class="dashboard-activity-header">
+                                        <h5 class="dashboard-activity-title">Listing Views Spike</h5>
+                                        <span class="dashboard-activity-time">Oct 21</span>
+                                    </div>
+                                    <p class="dashboard-activity-desc">Your listing <strong>Stainless Steel Prep Tables</strong> received 124 new views today.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column (Contextual Widgets) -->
+                <div class="dashboard-widget-group">
+                    
+                    <!-- Expiring Soon Widget -->
+                    <section class="dashboard-panel dashboard-panel--outline">
+                        <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-lg);">
+                            <span class="material-symbols-outlined" style="color: var(--color-primary);">timer</span>
+                            <h4 class="dashboard-panel-title" style="font-size: 1.125rem;">Listings Expiring Soon</h4>
+                        </div>
+                        <div class="dashboard-widget-content" id="expiring-listings">
+                            <!-- JS-populated from /api/listings/my/?expiry_days=7 -->
+                        </div>
+                        <button class="dashboard-full-btn" onclick="window.location.href='all-listings.html'">Manage All Listings</button>
+                    </section>
+
+                    <!-- Circular Economy Performance -->
+                    <section class="dashboard-panel dashboard-panel--dark">
+                        <h4 class="dashboard-panel-title">Your Impact</h4>
+                        
+                        <div class="dashboard-impact-stat">
+                            <div class="dashboard-impact-header">
+                                <span class="dashboard-impact-value" id="impact-waste">0 kg</span>
+                                <span class="dashboard-impact-label">Waste Diverted</span>
+                            </div>
+                            <div class="dashboard-impact-progress-bg">
+                                <div class="dashboard-impact-progress-fill" id="impact-waste-bar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-impact-stat" style="margin-bottom: 0;">
+                            <div class="dashboard-impact-header">
+                                <span class="dashboard-impact-value" id="impact-co2">0 kg</span>
+                                <span class="dashboard-impact-label">CO2 Offset</span>
+                            </div>
+                            <div class="dashboard-impact-progress-bg">
+                                <div class="dashboard-impact-progress-fill" id="impact-co2-bar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-impact-footer">
+                            <div class="dashboard-impact-ribbon">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                            </div>
+                            <span class="dashboard-impact-footer-text" id="impact-tier">Loading your tier…</span>
+                        </div>
+                    </section>
+
+                    <!-- Profile Quick View -->
+                    <section class="dashboard-panel">
+                        <div class="dashboard-profile-header">
+                            <div id="profile-avatar" class="dashboard-profile-avatar" style="background:linear-gradient(135deg,#10b981,#059669); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.25rem;">?</div>
+                            <div>
+                                <p class="dashboard-profile-name" id="profile-name">—</p>
+                                <p class="dashboard-profile-role" id="profile-role">Member</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-profile-stats">
+                            <div class="dashboard-profile-statbox">
+                                <p class="dashboard-profile-statbox-label">Rating</p>
+                                <p class="dashboard-profile-statbox-value" id="profile-rating">—</p>
+                            </div>
+                            <div class="dashboard-profile-statbox">
+                                <p class="dashboard-profile-statbox-label">Sales</p>
+                                <p class="dashboard-profile-statbox-value" id="profile-sales">0</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Contextual FAB (Floating Action Button) -->
+    <div class="dashboard-fab-container">
+        <button class="dashboard-fab" aria-label="Quick Add" onclick="window.location.href='create-listing.html'">
+            <span class="material-symbols-outlined dashboard-fab__icon" style="font-variation-settings: 'FILL' 1;">add</span>
+            <div class="dashboard-fab-tooltip">Quick List Item</div>
+        </button>
+    </div>
+
+    <!-- Global App Logic ONLY -->
+    <script src="listings-data.js?v=27"></script>
+    <script src="orders-data.js?v=27"></script>
+    <script src="engagement-data.js?v=27"></script>
+    <script src="app.js?v=43"></script>
+    <script src="dashboard.js?v=27"></script>
+</body>
+</html>

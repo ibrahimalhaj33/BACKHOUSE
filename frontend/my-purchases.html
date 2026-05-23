@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Purchases | BackHouse</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="my-purchases.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation (Dynamically Loaded) -->
+        <aside class="dashboard-sidebar" id="main-sidebar">
+            <div style="padding: 2rem; opacity: 0.5;">
+                <div style="height: 40px; width: 140px; background: rgba(0,0,0,0.05); border-radius: 8px; margin-bottom: 3rem;"></div>
+                <div style="height: 20px; width: 100%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+                <div style="height: 20px; width: 80%; background: rgba(0,0,0,0.05); border-radius: 4px; margin-bottom: 1rem;"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="dashboard-main-container">
+            <!-- Header (Exact copy pattern from create-listing.html) -->
+            <header class="dashboard-header">
+                <div class="dashboard-header__left">
+                    <h2 class="dashboard-header__title">Transactions</h2>
+                    <div class="dashboard-header__divider"></div>
+                    <div class="dashboard-header__date">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">chevron_right</span>
+                        <span>My Purchases</span>
+                    </div>
+                </div>
+                <div class="dashboard-header__actions">
+                    <button class="dashboard-header__btn" aria-label="Notifications">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="dashboard-header__dot"></span>
+                    </button>
+                    <button class="dashboard-header__btn" aria-label="Profile">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                
+                <!-- 1. Hero Section (Img 1) -->
+                <div class="purchases-hero">
+                    <h1 class="purchases-hero__title">My Purchases</h1>
+                    <p class="purchases-hero__subtitle">Track your sourcing and sustainability impact.</p>
+                </div>
+
+                <!-- 2. Purchases Table (Transformed Garbage Code) -->
+                <div class="table-container" style="margin-bottom: var(--space-2xl);">
+                    <div class="table-header">
+                        <span class="table-header__title">Cart items</span>
+                        <span class="table-header__count">4 items</span>
+                    </div>
+                    <table class="purchases-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows dynamically populated by my-purchases.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 3. Sustainability Scorecard (live from API) -->
+                <section class="scorecard">
+                    <div class="scorecard__intro">
+                        <h2 class="scorecard__title">Your Sustainability Scorecard</h2>
+                        <p class="scorecard__desc" id="scorecard-desc">Every purchase through BackHouse prevents food waste and reduces carbon footprint. Here is your collective impact.</p>
+                        <div class="scorecard__tier" id="scorecard-tier">
+                            <span class="material-symbols-outlined" id="scorecard-tier-icon" style="font-size: 1.25rem; font-variation-settings: 'FILL' 1;">spa</span>
+                            <span id="scorecard-tier-label">Tier: Starter</span>
+                        </div>
+                    </div>
+
+                    <div class="scorecard__card scorecard__card--green">
+                        <span class="material-symbols-outlined scorecard__icon">recycling</span>
+                        <div>
+                            <div class="scorecard__value" id="scorecard-waste">0 kg</div>
+                            <div class="scorecard__label">Food Waste Diverted</div>
+                        </div>
+                    </div>
+
+                    <div class="scorecard__card scorecard__card--white">
+                        <span class="material-symbols-outlined scorecard__icon" style="color: var(--color-primary);">payments</span>
+                        <div>
+                            <div class="scorecard__value" id="scorecard-savings" style="color: var(--color-on-surface);">0.00 JOD</div>
+                            <div class="scorecard__label" style="color: var(--color-secondary);">Procurement Savings</div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="listings-data.js"></script>
+    <script src="orders-data.js"></script>
+    <script src="app.js?v=43"></script>
+    <script src="my-purchases.js"></script>
+</body>
+</html>
